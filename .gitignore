@@ -1,0 +1,11 @@
+*.exe
+*.opensdf
+*.suo
+*.sdf
+Debug/
+x64/
+TacticalEngineOGL/Debug/
+TacticalEngineOGL/x64/
+*.sln
+*.sdf
+*.suo

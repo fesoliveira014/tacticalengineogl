@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Window Manager">
+      <UniqueIdentifier>{8e170fb0-b22c-4f01-8407-be5afa48840d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Renderer">
+      <UniqueIdentifier>{bd39d9af-d295-4f04-a653-7de1cdd782a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Renderer\Scene">
+      <UniqueIdentifier>{e73d7f20-9145-4fe7-88bc-8563c030969c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Renderer\Model">
+      <UniqueIdentifier>{2da2fe54-ddf1-4bc2-95f3-5c4dbaa738a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Renderer\Lighting">
+      <UniqueIdentifier>{87df1ea8-f30d-4f16-9085-20f6ded2adf8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Window Manager\Input Manager">
+      <UniqueIdentifier>{3b0b4cea-20c3-48b2-acbe-57990ba535b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Renderer\Camera">
+      <UniqueIdentifier>{0aa61205-7d9b-4698-8394-ef9e4acd3291}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
