@@ -1,0 +1,15 @@
+<02:26:44> - Session Initiated.
+
+
+<02:26:44> - [INFO]: OpenGL version: 3.3.0 NVIDIA 353.62
+<02:26:44> - [INFO]: GLSL version: 3.30 NVIDIA via Cg compiler
+<02:26:44> - [INFO]: Vendor: NVIDIA Corporation
+<02:26:44> - [INFO]: Renderer: GeForce GTX 980 Ti/PCIe/SSE2
+<02:26:44> - [INFO]: Window successfully initialized
+<02:26:46> - [INFO]: Shutting window down...
+
+
+<02:26:46> - There were 0 warnings and 0 errors
+---------------------------------------
+
+

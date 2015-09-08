@@ -28,16 +28,27 @@
     <Filter Include="Source Files\Renderer\Lighting">
       <UniqueIdentifier>{87df1ea8-f30d-4f16-9085-20f6ded2adf8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Window Manager\Input Manager">
-      <UniqueIdentifier>{3b0b4cea-20c3-48b2-acbe-57990ba535b9}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Renderer\Camera">
       <UniqueIdentifier>{0aa61205-7d9b-4698-8394-ef9e4acd3291}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Logger">
+      <UniqueIdentifier>{68628e2e-87c7-46f8-8116-33d34fbb88cf}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Window.cpp">
+      <Filter>Source Files\Window Manager</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Window.h">
+      <Filter>Source Files\Window Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Logger.h">
+      <Filter>Source Files\Logger</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
