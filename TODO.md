@@ -61,4 +61,4 @@
 * Sound might be a thing: OpenAL sounds interesting
 * SDL seems to handle extra systems well, should look into it
 * SMFL is another good platarform, but GLFW is good for now since the focus is graphics
-* Create a code standart based on the (Google Style Guide)[https://google-styleguide.googlecode.com/svn/trunk/cppguide.html]
+* Create a code standart based on the [Google Style Guide](https://google-styleguide.googlecode.com/svn/trunk/cppguide.html)
