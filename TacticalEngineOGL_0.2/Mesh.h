@@ -22,10 +22,8 @@ protected:
 	GLuint m_numVertices;
 	GLuint m_type;
 
-	glm::vec3 m_vertices;
-	glm::vec4 m_colours;
-
-
+	glm::vec3* m_vertices;
+	glm::vec4* m_colours;
 };
 
 #endif
