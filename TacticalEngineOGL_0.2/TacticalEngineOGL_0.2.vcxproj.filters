@@ -34,6 +34,15 @@
     <Filter Include="Source Files\Logger">
       <UniqueIdentifier>{68628e2e-87c7-46f8-8116-33d34fbb88cf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Renderer\Shader">
+      <UniqueIdentifier>{868c050b-dd04-4f1b-8b64-bdf30a22392a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utils">
+      <UniqueIdentifier>{50c1214d-0f0f-4c26-822c-bed6be780816}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Renderer\Mesh">
+      <UniqueIdentifier>{ab09a872-49ef-4d9c-a49f-c6ff2a285e58}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -42,6 +51,15 @@
     <ClCompile Include="Window.cpp">
       <Filter>Source Files\Window Manager</Filter>
     </ClCompile>
+    <ClCompile Include="Shader.cpp">
+      <Filter>Source Files\Renderer\Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer.cpp">
+      <Filter>Source Files\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh.cpp">
+      <Filter>Source Files\Renderer\Mesh</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Window.h">
@@ -49,6 +67,18 @@
     </ClInclude>
     <ClInclude Include="Logger.h">
       <Filter>Source Files\Logger</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer.h">
+      <Filter>Source Files\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader.h">
+      <Filter>Source Files\Renderer\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils.h">
+      <Filter>Source Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>Source Files\Renderer\Mesh</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
