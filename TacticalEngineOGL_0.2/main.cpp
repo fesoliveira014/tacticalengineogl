@@ -10,9 +10,15 @@
 int main(int argc, char* argv[])
 {
 	Window* window = Window::GetInstance();
+	Renderer* renderer = Renderer::GetInstance();
 	Logger logger("looger.txt", true);
 
+	
+
 	if (window->Initialize(1200, 800, &logger)) {
+		if (!renderer->Initialize(*window, &logger))
+			return 2;
+		window->SetRenderer(renderer);
 		window->Update();
 		window->Shutdown();
 	}

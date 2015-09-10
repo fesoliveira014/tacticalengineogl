@@ -66,7 +66,7 @@ bool Shader::CreateAndLinkProgram() {
 	}
 
 	if (m_fragmentShader != 0) {
-		glAttachShader(m_shaderProgram, m_vertexShader);
+		glAttachShader(m_shaderProgram, m_fragmentShader);
 	}
 
 	if (m_geometryShader != 0) {
@@ -99,6 +99,7 @@ bool Shader::CreateAndLinkProgram() {
 	glDeleteShader(m_geometryShader);
 
 	(*m_logger) << Logger::logType::LOG_INFO << "Shaders successfully created and linked.";
+	(*m_logger) << Logger::logType::LOG_INFO << "		Shader program: " + std::to_string(unsigned int(m_shaderProgram));
 
 	return true;
 }
@@ -136,7 +137,7 @@ bool Shader::Compile(const char* shaderSource, GLenum shaderType) {
 	else if (shaderType == GL_FRAGMENT_SHADER)
 		m_fragmentShader = shaderObject;
 	else if (shaderType == GL_GEOMETRY_SHADER)
-		m_geometryShader == shaderObject;
+		m_geometryShader = shaderObject;
 
 	(*m_logger) << Logger::logType::LOG_INFO << "Shader successfully compiled.";
 

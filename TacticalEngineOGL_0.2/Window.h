@@ -7,6 +7,7 @@
 #include "GLFW\glfw3.h"
 #include "glm\glm.hpp"
 
+#include "Renderer.h"
 #include "Logger.h"
 
 class Window{
@@ -24,7 +25,7 @@ public:
 
 	void Update();
 
-	void SetRenderer();
+	void SetRenderer(Renderer* renderer) { m_renderer = renderer; }
 
 	glm::vec2 GetScreenSize() { return glm::vec2(m_width, m_height); }
 	void ShowFps();
@@ -43,6 +44,7 @@ protected:
 	int m_numFrames;
 	double m_lastTime;
 
+	Renderer* m_renderer;
 	Logger* m_logger;
 };
 

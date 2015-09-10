@@ -43,6 +43,9 @@
     <Filter Include="Source Files\Renderer\Mesh">
       <UniqueIdentifier>{ab09a872-49ef-4d9c-a49f-c6ff2a285e58}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Renderer\Shader\Shaders">
+      <UniqueIdentifier>{5cbf3655-d5c5-41dc-8ca9-a51c519aa584}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -80,5 +83,13 @@
     <ClInclude Include="Mesh.h">
       <Filter>Source Files\Renderer\Mesh</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Shader\basicFragment.glsl">
+      <Filter>Source Files\Renderer\Shader\Shaders</Filter>
+    </None>
+    <None Include="Shader\basicVertex.glsl">
+      <Filter>Source Files\Renderer\Shader\Shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>

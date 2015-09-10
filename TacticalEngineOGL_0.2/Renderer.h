@@ -3,11 +3,14 @@
 
 #include "glew\glew.h"
 
-#include "Window.h"
 #include "Shader.h"
 #include "Logger.h"
+#include "Mesh.h"
+
+class Window;
 
 class Renderer {
+public:
 	static Renderer* GetInstance() {
 		static Renderer* renderer = new Renderer();
 		return renderer;
@@ -23,7 +26,9 @@ class Renderer {
 
 protected:
 	Renderer();
-
+	Mesh* m_triangle;
+	Shader* m_currentShader;
+	Logger* m_logger;
 };
 
 

@@ -1,15 +1,28 @@
-<02:26:44> - Session Initiated.
+<12:52:42> - Session Initiated.
 
 
-<02:26:44> - [INFO]: OpenGL version: 3.3.0 NVIDIA 353.62
-<02:26:44> - [INFO]: GLSL version: 3.30 NVIDIA via Cg compiler
-<02:26:44> - [INFO]: Vendor: NVIDIA Corporation
-<02:26:44> - [INFO]: Renderer: GeForce GTX 980 Ti/PCIe/SSE2
-<02:26:44> - [INFO]: Window successfully initialized
-<02:26:46> - [INFO]: Shutting window down...
+<12:52:43> - [INFO]: OpenGL version: 3.3.0 NVIDIA 353.62
+<12:52:43> - [INFO]: GLSL version: 3.30 NVIDIA via Cg compiler
+<12:52:43> - [INFO]: Vendor: NVIDIA Corporation
+<12:52:43> - [INFO]: Renderer: GeForce GTX 980 Ti/PCIe/SSE2
+<12:52:43> - [INFO]: Window successfully initialized.
+<12:52:43> - [INFO]: Starting renderer initialization...
+<12:52:43> - [INFO]: Loading shader...
+<12:52:43> - [INFO]: Starting shader compilation...
+<12:52:43> - [INFO]: Shader successfully compiled.
+<12:52:43> - [INFO]: Shader ./Shader/basicVertex.glsl successfully initialized.
+<12:52:43> - [INFO]: Loading shader...
+<12:52:43> - [INFO]: Starting shader compilation...
+<12:52:43> - [INFO]: Shader successfully compiled.
+<12:52:43> - [INFO]: Shader ./Shader/basicFragment.glsl successfully initialized.
+<12:52:43> - [INFO]: Starting shader program creation and linkage...
+<12:52:43> - [INFO]: Shaders successfully created and linked.
+<12:52:43> - [INFO]: 		Shader program: 3
+<12:52:43> - [INFO]: Renderer successfully initialized.
+<12:52:44> - [INFO]: Shutting window down...
 
 
-<02:26:46> - There were 0 warnings and 0 errors
+<12:52:44> - There were 0 warnings and 0 errors.
 ---------------------------------------
 
 

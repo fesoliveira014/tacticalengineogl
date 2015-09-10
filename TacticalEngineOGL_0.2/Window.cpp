@@ -11,8 +11,6 @@ bool Window::Initialize(int width, int height, Logger* logger, const std::string
 
 	m_logger = logger;
 
-	bool result;
-
 	if (!glfwInit()) {
 		(*m_logger) << Logger::logType::LOG_ERROR << "GLFW could not be started.";
 		return false;
@@ -66,7 +64,8 @@ void Window::Shutdown() {
 
 void Window::Update() {
 	while (!glfwWindowShouldClose(m_window)) {
-		// render call
+		m_renderer->RenderScene();
+		glfwSwapBuffers(m_window);
 		glfwPollEvents();
 	}
 }
