@@ -12,8 +12,9 @@ class Window;
 class Renderer {
 public:
 	static Renderer* GetInstance() {
-		static Renderer* renderer = new Renderer();
-		return renderer;
+		if (m_instance == NULL)
+			static Renderer* renderer = new Renderer();
+		return m_instance;
 	}
 
 	~Renderer() {};
@@ -26,6 +27,9 @@ public:
 
 protected:
 	Renderer();
+
+	static Renderer* m_instance;
+
 	Mesh* m_triangle;
 	Shader* m_currentShader;
 	Logger* m_logger;

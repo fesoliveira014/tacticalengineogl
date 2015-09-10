@@ -83,6 +83,9 @@
     <ClInclude Include="Mesh.h">
       <Filter>Source Files\Renderer\Mesh</Filter>
     </ClInclude>
+    <ClInclude Include="VirtualCamera.h">
+      <Filter>Source Files\Renderer\Camera</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Shader\basicFragment.glsl">
