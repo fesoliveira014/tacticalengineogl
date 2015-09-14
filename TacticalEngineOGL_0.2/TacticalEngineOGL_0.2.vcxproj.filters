@@ -86,6 +86,9 @@
     <ClInclude Include="VirtualCamera.h">
       <Filter>Source Files\Renderer\Camera</Filter>
     </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Source Files\Renderer\Camera</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Shader\basicFragment.glsl">
