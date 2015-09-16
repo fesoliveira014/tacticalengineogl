@@ -63,6 +63,12 @@
     <ClCompile Include="Mesh.cpp">
       <Filter>Source Files\Renderer\Mesh</Filter>
     </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Source Files\Renderer\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="VirtualCamera.cpp">
+      <Filter>Source Files\Renderer\Camera</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Window.h">
@@ -88,6 +94,9 @@
     </ClInclude>
     <ClInclude Include="Camera.h">
       <Filter>Source Files\Renderer\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.h">
+      <Filter>Source Files\Utils</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

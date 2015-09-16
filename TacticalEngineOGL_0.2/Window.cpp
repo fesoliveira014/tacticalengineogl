@@ -1,9 +1,11 @@
 #include "Window.h"
 
+Window* Window::m_instance = NULL;
+
 Window::Window() {}
 Window::~Window() {}
 
-bool Window::Initialize(int width, int height, Logger* logger, const std::string name, bool fullscreen) {
+bool Window::Initialize(float width, float height, Logger* logger, const std::string name, bool fullscreen) {
 	m_width		 = width;
 	m_height	 = height;
 	m_windowName = name;

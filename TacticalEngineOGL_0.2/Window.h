@@ -21,31 +21,12 @@ public:
 
 	~Window();
 
-	bool Initialize(int width, int height, Logger* logger, const std::string name = "Game Window", bool fullscreen = false);
+	bool Initialize(float width, float height, Logger* logger, const std::string name = "Game Window", bool fullscreen = false);
 	void Shutdown();
 
 	void Update();
 
 	void SetRenderer(Renderer* renderer) { m_renderer = renderer; }
-
-	static int GetKeyState(Window &window, int key) {
-		return glfwGetKey(window.m_window, key);
-	}
-
-	static int GetMouseButtomState(Window &window, int buttom) { 
-		return glfwGetMouseButton(window.m_window, buttom);
-	}
-
-	static glm::vec2 GetCursorPos(Window &window) {
-		double xpos, ypos;
-		glfwGetCursorPos(window.m_window, &xpos, &ypos);
-		return glm::vec2(xpos, ypos);
-	}
-	
-	static void SetCursorPos(Window &window, double xpos, double ypos) {
-		glfwSetCursorPos(window.m_window, xpos, ypos);
-	}
-
 
 	glm::vec2 GetScreenSize() { return glm::vec2(m_width, m_height); }
 	void ShowFps();

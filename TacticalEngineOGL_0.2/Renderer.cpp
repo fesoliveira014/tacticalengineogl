@@ -1,18 +1,21 @@
 #include "Renderer.h"
 
+Renderer* Renderer::m_instance = NULL;
+
 Renderer::Renderer() {
 	m_triangle = NULL;
 	m_currentShader = NULL;
 	m_logger = NULL;
 }
 
-bool Renderer::Initialize(Window &parent, Logger *logger) {
+bool Renderer::Initialize(glm::vec2 screenDimensions, Logger *logger) {
 	m_logger = logger;
 	(*m_logger) << Logger::logType::LOG_INFO << "Starting renderer initialization...";
 
 	m_triangle = Mesh::GenerateTriangle();
 
 	bool result;
+	bool criticalError = false;
 
 	m_currentShader = new Shader();
 	m_currentShader->Initialize(m_logger);
@@ -30,11 +33,21 @@ bool Renderer::Initialize(Window &parent, Logger *logger) {
 	result = m_currentShader->CreateAndLinkProgram();
 	if (!result) {
 		(*m_logger) << Logger::logType::LOG_ERROR << "Could not create and link shader program.";
+		criticalError = true;
 	}
 
-	(*m_logger) << Logger::logType::LOG_INFO << "Renderer successfully initialized.";
+	m_camera = new Camera();
+	result = m_camera->Initialize(glm::vec3(0.0f, 0.0f, -7.0f), glm::vec3(0.0f, 0.0f, -1.0f), 
+											45.0f, screenDimensions.x, screenDimensions.y);
+	if (!result) {
+		(*m_logger) << Logger::logType::LOG_ERROR << "Could not instantiate camera.";
+		criticalError = true;
+	}
 
-	return true;
+	if (!criticalError)
+		(*m_logger) << Logger::logType::LOG_INFO << "Renderer successfully initialized.";
+
+	return !criticalError;
 }
 
 void Renderer::Shutdown() {
@@ -45,6 +58,10 @@ void Renderer::Shutdown() {
 	}
 
 	m_logger = NULL;
+}
+
+void Renderer::UpdateScene() {
+
 }
 
 void Renderer::RenderScene() {

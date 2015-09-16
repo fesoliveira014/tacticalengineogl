@@ -13,11 +13,11 @@ int main(int argc, char* argv[])
 	Renderer* renderer = Renderer::GetInstance();
 	Logger logger("looger.txt", true);
 
-	
-
-	if (window->Initialize(1200, 800, &logger)) {
-		if (!renderer->Initialize(*window, &logger))
+	if (window->Initialize(1200.0, 800.0, &logger)) {
+		if (renderer == NULL || !renderer->Initialize(window->GetScreenSize(), &logger)) {
+			logger << Logger::logType::LOG_ERROR << "Renderer could not be initialized.";
 			return 2;
+		}
 		window->SetRenderer(renderer);
 		window->Update();
 		window->Shutdown();

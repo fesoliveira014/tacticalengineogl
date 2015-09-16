@@ -1,28 +1,28 @@
-<12:52:42> - Session Initiated.
+<02:17:42> - Session Initiated.
 
 
-<12:52:43> - [INFO]: OpenGL version: 3.3.0 NVIDIA 353.62
-<12:52:43> - [INFO]: GLSL version: 3.30 NVIDIA via Cg compiler
-<12:52:43> - [INFO]: Vendor: NVIDIA Corporation
-<12:52:43> - [INFO]: Renderer: GeForce GTX 980 Ti/PCIe/SSE2
-<12:52:43> - [INFO]: Window successfully initialized.
-<12:52:43> - [INFO]: Starting renderer initialization...
-<12:52:43> - [INFO]: Loading shader...
-<12:52:43> - [INFO]: Starting shader compilation...
-<12:52:43> - [INFO]: Shader successfully compiled.
-<12:52:43> - [INFO]: Shader ./Shader/basicVertex.glsl successfully initialized.
-<12:52:43> - [INFO]: Loading shader...
-<12:52:43> - [INFO]: Starting shader compilation...
-<12:52:43> - [INFO]: Shader successfully compiled.
-<12:52:43> - [INFO]: Shader ./Shader/basicFragment.glsl successfully initialized.
-<12:52:43> - [INFO]: Starting shader program creation and linkage...
-<12:52:43> - [INFO]: Shaders successfully created and linked.
-<12:52:43> - [INFO]: 		Shader program: 3
-<12:52:43> - [INFO]: Renderer successfully initialized.
-<12:52:44> - [INFO]: Shutting window down...
+<02:17:42> - [INFO]: OpenGL version: 3.3.0 NVIDIA 353.62
+<02:17:42> - [INFO]: GLSL version: 3.30 NVIDIA via Cg compiler
+<02:17:42> - [INFO]: Vendor: NVIDIA Corporation
+<02:17:42> - [INFO]: Renderer: GeForce GTX 980 Ti/PCIe/SSE2
+<02:17:42> - [INFO]: Window successfully initialized.
+<02:17:42> - [INFO]: Starting renderer initialization...
+<02:17:42> - [INFO]: Loading shader...
+<02:17:42> - [INFO]: Starting shader compilation...
+<02:17:42> - [INFO]: Shader successfully compiled.
+<02:17:42> - [INFO]: Shader ./Shader/basicVertex.glsl successfully initialized.
+<02:17:42> - [INFO]: Loading shader...
+<02:17:42> - [INFO]: Starting shader compilation...
+<02:17:42> - [INFO]: Shader successfully compiled.
+<02:17:42> - [INFO]: Shader ./Shader/basicFragment.glsl successfully initialized.
+<02:17:42> - [INFO]: Starting shader program creation and linkage...
+<02:17:42> - [INFO]: Shaders successfully created and linked.
+<02:17:42> - [INFO]: 		Shader program: 3
+<02:17:42> - [INFO]: Renderer successfully initialized.
+<02:17:59> - [INFO]: Shutting window down...
 
 
-<12:52:44> - There were 0 warnings and 0 errors.
+<02:17:59> - There were 0 warnings and 0 errors.
 ---------------------------------------
 
 
