@@ -10,7 +10,7 @@ public:
 	Camera();
 	~Camera();
 
-	bool Initialize(glm::vec3 position, glm::vec3 lookat, float fov, int width, int height, Logger* logger);
+	bool Initialize(glm::vec3 position, glm::vec3 lookat, float fov, int width, int height);
 	void Shutdown();
 
 	void Update(float msec = 1.0f);

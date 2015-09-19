@@ -22,7 +22,7 @@ public:
 
 	~Window();
 
-	bool Initialize(float width, float height, Logger* logger, const std::string name = "Game Window", bool fullscreen = false);
+	bool Initialize(float width, float height, const std::string name = "Game Window", bool fullscreen = false);
 	void Shutdown();
 
 	void Update();
@@ -49,7 +49,6 @@ protected:
 	double m_lastTime;
 
 	Renderer* m_renderer;
-	Logger* m_logger;
 	Timer* m_timer;
 };
 

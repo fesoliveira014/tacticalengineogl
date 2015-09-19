@@ -23,7 +23,7 @@ public:
 
 	~Renderer() {};
 
-	bool Initialize(glm::vec2 screenDimensions, Logger *logger);
+	bool Initialize(glm::vec2 screenDimensions);
 	void Shutdown();
 
 	static void MouseMotionCallback(GLFWwindow* window, double xpos, double ypos) {
@@ -55,7 +55,6 @@ protected:
 	Camera* m_camera;
 	Mesh* m_triangle;
 	Shader* m_currentShader;
-	Logger* m_logger;
 };
 
 

@@ -3,8 +3,8 @@
 Camera::Camera() {}
 Camera::~Camera() {}
 
-bool Camera::Initialize(glm::vec3 position, glm::vec3 lookat, float fov, int width, int height, Logger* logger) {
-	VirtualCamera::Initialize(position, lookat, fov, width, height, logger);
+bool Camera::Initialize(glm::vec3 position, glm::vec3 lookat, float fov, int width, int height) {
+	VirtualCamera::Initialize(position, lookat, fov, width, height);
 
 	m_cameraState = STILL;
 
@@ -108,7 +108,7 @@ void Camera::Move2D(glm::vec2 pos) {
 
 void Camera::SetCameraState(int buttom, int action, double x, double y) {
 	if (buttom == GLFW_MOUSE_BUTTON_RIGHT && action == GLFW_PRESS) {
-		(*m_logger) << Logger::logType::LOG_INFO << "'Right' mouse buttom pressed.";
+		(*Logger::GetInstance()) << Logger::logType::LOG_INFO << "'Right' mouse buttom pressed.";
 		m_cameraState = ROTATE;
 	}
 	else if (buttom == GLFW_MOUSE_BUTTON_RIGHT && action == GLFW_RELEASE) {
@@ -121,7 +121,7 @@ void Camera::SetCameraState(int buttom, int action, double x, double y) {
 void Camera::OnKeyboard(GLFWwindow* window, int key, int scancode, int action, int mods) {
 	if (key == GLFW_KEY_W) {
 		if (action == GLFW_PRESS) {
-			(*m_logger) << Logger::logType::LOG_INFO << "W Key pressed.";
+			(*Logger::GetInstance()) << Logger::logType::LOG_INFO << "W Key pressed.";
 			m_moveState.forward = true;
 		}
 
@@ -132,7 +132,7 @@ void Camera::OnKeyboard(GLFWwindow* window, int key, int scancode, int action, i
 
 	if (key == GLFW_KEY_S) {
 		if (action == GLFW_PRESS) {
-			(*m_logger) << Logger::logType::LOG_INFO << "S Key pressed.";
+			(*Logger::GetInstance()) << Logger::logType::LOG_INFO << "S Key pressed.";
 			m_moveState.back = true;
 		}
 
@@ -143,7 +143,7 @@ void Camera::OnKeyboard(GLFWwindow* window, int key, int scancode, int action, i
 
 	if (key == GLFW_KEY_A) {
 		if (action == GLFW_PRESS) {
-			(*m_logger) << Logger::logType::LOG_INFO << "A Key pressed.";
+			(*Logger::GetInstance()) << Logger::logType::LOG_INFO << "A Key pressed.";
 			m_moveState.left = true;
 		}
 
@@ -154,7 +154,7 @@ void Camera::OnKeyboard(GLFWwindow* window, int key, int scancode, int action, i
 
 	if (key == GLFW_KEY_D) {
 		if (action == GLFW_PRESS) {
-			(*m_logger) << Logger::logType::LOG_INFO << "D Key pressed.";
+			(*Logger::GetInstance()) << Logger::logType::LOG_INFO << "D Key pressed.";
 			m_moveState.right = true;
 		}
 
@@ -165,7 +165,7 @@ void Camera::OnKeyboard(GLFWwindow* window, int key, int scancode, int action, i
 
 	if (key == GLFW_KEY_LEFT_SHIFT) {
 		if (action == GLFW_PRESS) {
-			(*m_logger) << Logger::logType::LOG_INFO << "'Shift' Key pressed.";
+			(*Logger::GetInstance()) << Logger::logType::LOG_INFO << "'Shift' Key pressed.";
 			m_moveState.down = true;
 		}
 
@@ -176,7 +176,7 @@ void Camera::OnKeyboard(GLFWwindow* window, int key, int scancode, int action, i
 
 	if (key == GLFW_KEY_SPACE) {
 		if (action == GLFW_PRESS) {
-			(*m_logger) << Logger::logType::LOG_INFO << "'Space' Key pressed.";
+			(*Logger::GetInstance()) << Logger::logType::LOG_INFO << "'Space' Key pressed.";
 			m_moveState.up = true;
 		}
 
@@ -186,7 +186,7 @@ void Camera::OnKeyboard(GLFWwindow* window, int key, int scancode, int action, i
 	}
 
 	if (key == GLFW_KEY_F && action == GLFW_PRESS) {
-		(*m_logger) << Logger::logType::LOG_INFO << "F Key pressed.";
+		(*Logger::GetInstance()) << Logger::logType::LOG_INFO << "F Key pressed.";
 		if (m_projectionState == PERSPECTIVE) m_projectionState = ORTHO;
 		else m_projectionState = PERSPECTIVE;
 	}

@@ -5,16 +5,14 @@ Window* Window::m_instance = NULL;
 Window::Window() {}
 Window::~Window() {}
 
-bool Window::Initialize(float width, float height, Logger* logger, const std::string name, bool fullscreen) {
+bool Window::Initialize(float width, float height, const std::string name, bool fullscreen) {
 	m_width		 = width;
 	m_height	 = height;
 	m_windowName = name;
 	m_fullscreen = fullscreen;
 
-	m_logger = logger;
-
 	if (!glfwInit()) {
-		(*m_logger) << Logger::logType::LOG_ERROR << "GLFW could not be started.";
+		(*Logger::GetInstance()) << Logger::logType::LOG_ERROR << "GLFW could not be started.";
 		return false;
 	}
 
@@ -27,7 +25,7 @@ bool Window::Initialize(float width, float height, Logger* logger, const std::st
 
 	m_window = glfwCreateWindow(m_width, m_height, m_windowName.c_str(), NULL, NULL);
 	if (!m_window) {
-		(*m_logger) << Logger::logType::LOG_ERROR << "GLFW window could not be created.";
+		(*Logger::GetInstance()) << Logger::logType::LOG_ERROR << "GLFW window could not be created.";
 		return false;
 	}
 
@@ -36,7 +34,7 @@ bool Window::Initialize(float width, float height, Logger* logger, const std::st
 	glewExperimental = GL_TRUE;
 
 	if (glewInit() != GLEW_OK) {
-		(*m_logger) << Logger::logType::LOG_ERROR << "GLEW could not be initialized.";
+		(*Logger::GetInstance()) << Logger::logType::LOG_ERROR << "GLEW could not be initialized.";
 		return false;
 	}
 
@@ -46,24 +44,23 @@ bool Window::Initialize(float width, float height, Logger* logger, const std::st
 	std::string glVendor = reinterpret_cast< char const * >(glGetString(GL_VENDOR));
 	std::string glRenderer = reinterpret_cast< char const * >(glGetString(GL_RENDERER));
 
-	(*m_logger) << Logger::logType::LOG_INFO << "OpenGL version: " + glVersion;
-	(*m_logger) << Logger::logType::LOG_INFO << "GLSL version: " + glShaderVersion;
-	(*m_logger) << Logger::logType::LOG_INFO << "Vendor: " + glVendor;
-	(*m_logger) << Logger::logType::LOG_INFO << "Renderer: " + glRenderer;
+	(*Logger::GetInstance()) << Logger::logType::LOG_INFO << "OpenGL version: " + glVersion;
+	(*Logger::GetInstance()) << Logger::logType::LOG_INFO << "GLSL version: " + glShaderVersion;
+	(*Logger::GetInstance()) << Logger::logType::LOG_INFO << "Vendor: " + glVendor;
+	(*Logger::GetInstance()) << Logger::logType::LOG_INFO << "Renderer: " + glRenderer;
 
 	m_timer = new Timer();
 	m_numFrames = 0;
 	m_lastTime = m_timer->GetMS();
 
-	(*m_logger) << Logger::logType::LOG_INFO << "Window successfully initialized.";
+	(*Logger::GetInstance()) << Logger::logType::LOG_INFO << "Window successfully initialized.";
 
 	return true;
 }
 
 void Window::Shutdown() {
-	(*m_logger) << Logger::logType::LOG_INFO << "Shutting window down...";
+	(*Logger::GetInstance()) << Logger::logType::LOG_INFO << "Shutting window down...";
 	glfwTerminate();
-	m_logger = NULL;
 }
 
 void Window::SetRenderer(Renderer* renderer) {

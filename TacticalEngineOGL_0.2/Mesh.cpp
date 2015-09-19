@@ -19,18 +19,21 @@ Mesh::Mesh() {
 Mesh::~Mesh() {
 	glDeleteVertexArrays(1, &m_arrayObject);
 	glDeleteBuffers(MAX_BUFFER, m_bufferObject);
-	glDeleteTextures(1, &m_texture);
+
+	if (m_texture != NULL)
+		m_texture->Shutdown();
+
 	delete[] m_vertices;
 	delete[] m_colours;
 	delete[] m_textureCoords;
 }
 
 void Mesh::Draw() {
-	glBindTexture(GL_TEXTURE_2D, m_texture);
+	Texture::Bind(m_texture);
 	glBindVertexArray(m_arrayObject);
 	glDrawArrays(m_type, 0, m_numVertices);
 	glBindVertexArray(0);
-	glBindTexture(GL_TEXTURE_2D, 0);
+	Texture::Unbind(m_texture);
 }
 
 Mesh* Mesh::GenerateTriangle() {

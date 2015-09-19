@@ -27,7 +27,7 @@ public:
 	VirtualCamera() {};
 	~VirtualCamera() {};
 
-	bool virtual Initialize(glm::vec3 position, glm::vec3 lookat, float fov, int width, int height, Logger* logger);
+	bool virtual Initialize(glm::vec3 position, glm::vec3 lookat, float fov, int width, int height);
 	void virtual Shutdown() = 0;
 
 	virtual void Update(float msec) = 0;
@@ -59,8 +59,6 @@ protected:
 
 	float m_speed;
 	float m_mouseSensitivity;
-
-	Logger* m_logger;
 };
 
 #endif

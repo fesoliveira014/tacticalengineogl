@@ -6,6 +6,7 @@
 #include "SOIL\SOIL.h"
 
 class Image {
+public:
 	Image();
 	~Image();
 

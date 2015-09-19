@@ -10,6 +10,7 @@
 #include "Logger.h"
 
 class Texture {
+public:
 	Texture();
 	~Texture();
 
@@ -17,6 +18,14 @@ class Texture {
 	bool Initialize(GLenum target, std::vector<char*> textureFaces);
 
 	void Shutdown();
+
+	static void Bind(Texture* texture) {
+		glBindTexture(texture->m_textureTarget, texture->m_textureID);
+	}
+
+	static void Unbind(Texture* texture) {
+		glBindTexture(texture->m_textureTarget, 0);
+	}
 	
 	GLuint GetTextureID() { return m_textureID; }
 	GLenum GetTextureTarget() { return m_textureTarget; }
@@ -39,8 +48,6 @@ protected:
 	GLuint m_textureID;
 	GLenum m_textureTarget;
 	std::string m_textureName;
-
-	Logger* m_logger;
 };
 
 #endif

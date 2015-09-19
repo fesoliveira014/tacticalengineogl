@@ -8,6 +8,7 @@
 #include "glew\glew.h"
 #include "Logger.h"
 #include "Utils.h"
+#include "Mesh.h"
 
 class Shader {
 public:
@@ -16,7 +17,7 @@ public:
 	Shader();
 	~Shader();
 
-	bool Initialize(Logger* logger);
+	bool Initialize();
 	void Shutdown();
 
 	bool LoadShaderFromFile(GLenum shaderType, const char* fileName);
@@ -33,6 +34,13 @@ public:
 
 	GLuint GetProgram() { return m_shaderProgram; }
 
+	void Shader::SetDefaultAttributes() {
+		glBindAttribLocation(m_shaderProgram, VERTEX_BUFFER, "position");
+		glBindAttribLocation(m_shaderProgram, COLOUR_BUFFER, "colour");
+		glBindAttribLocation(m_shaderProgram, TEXTURE_BUFFER, "texCoords");
+
+	}
+
 protected:
 	bool Compile(const char* shaderSource, GLenum shaderType);
 	void DeleteShaderProgram() { glDeleteProgram(m_shaderProgram); }
@@ -45,8 +53,6 @@ protected:
 
 	std::map<string, GLuint> m_attributeList;
 	std::map<string, GLuint> m_uniformList;
-
-	Logger* m_logger;
 };
 
 

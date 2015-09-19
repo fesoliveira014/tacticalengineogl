@@ -1,0 +1,32 @@
+<19:10:40> - Session Initiated.
+
+
+<19:10:41> - [INFO]: OpenGL version: 3.3.0 NVIDIA 353.62
+<19:10:41> - [INFO]: GLSL version: 3.30 NVIDIA via Cg compiler
+<19:10:41> - [INFO]: Vendor: NVIDIA Corporation
+<19:10:41> - [INFO]: Renderer: GeForce GTX 980 Ti/PCIe/SSE2
+<19:10:41> - [INFO]: Window successfully initialized.
+<19:10:41> - [INFO]: Starting renderer initialization...
+<19:10:41> - [INFO]: Loading shader...
+<19:10:41> - [INFO]: Starting shader compilation...
+<19:10:41> - [INFO]: Shader successfully compiled.
+<19:10:41> - [INFO]: Shader ./Shader/basicVertex.glsl successfully initialized.
+<19:10:41> - [INFO]: Loading shader...
+<19:10:41> - [INFO]: Starting shader compilation...
+<19:10:41> - [INFO]: Shader successfully compiled.
+<19:10:41> - [INFO]: Shader ./Shader/basicFragment.glsl successfully initialized.
+<19:10:41> - [INFO]: Starting shader program creation and linkage...
+<19:10:41> - [INFO]: Shaders successfully created and linked.
+<19:10:41> - [INFO]: 		Shader program: 3
+<19:10:41> - [INFO]: Uniform 'viewProjectionMatrix' added to the uniform list.
+<19:10:41> - [INFO]: Uniform 'modelMatrix' added to the uniform list.
+<19:10:41> - [INFO]: Uniform 'diffuseTex' added to the uniform list.
+<19:10:41> - [INFO]: Renderer successfully initialized.
+<19:10:43> - [INFO]: W Key pressed.
+<19:10:45> - [INFO]: 'Right' mouse buttom pressed.
+<19:10:45> - [INFO]: D Key pressed.
+<19:10:46> - [INFO]: A Key pressed.
+<19:10:48> - [INFO]: D Key pressed.
+<19:10:49> - [INFO]: A Key pressed.
+<19:10:50> - [INFO]: 'Right' mouse buttom pressed.
+<19:11:00> - [INFO]: Shutting window down...

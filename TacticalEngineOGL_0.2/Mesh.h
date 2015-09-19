@@ -6,6 +6,8 @@
 #include "glm\gtc\matrix_transform.hpp"
 #include "glm\gtc\type_ptr.hpp"
 
+#include "Texture.h"
+
 enum MeshBuffer { VERTEX_BUFFER, COLOUR_BUFFER, TEXTURE_BUFFER, MAX_BUFFER };
 
 class Mesh {
@@ -16,8 +18,8 @@ public:
 	virtual void Draw();
 	static Mesh* GenerateTriangle();
 
-	void SetTexture(GLuint textureID) { m_texture = textureID; }
-	GLuint GetTexture()				  { return m_texture; }
+	void SetTexture(Texture* texture) { m_texture = texture; }
+	Texture* GetTexture()				  { return m_texture; }
 
 protected:
 	void BufferData();
@@ -26,7 +28,8 @@ protected:
 	GLuint m_bufferObject[MAX_BUFFER];
 	GLuint m_numVertices;
 	GLuint m_type;
-	GLuint m_texture;
+	
+	Texture* m_texture;
 
 	glm::vec3* m_vertices;
 	glm::vec2* m_textureCoords;

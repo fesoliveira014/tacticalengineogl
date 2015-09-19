@@ -13,20 +13,11 @@ public:
 
 	enum class logType {LOG_ERROR, LOG_WARNING, LOG_INFO};
 
-	explicit Logger(const std::string & fileName, bool console = false) : m_numErrors(0U), m_numWarning(0U), m_console(console) {
-		m_file.open(fileName.c_str());
-
-		if (m_file.is_open()) {
-			UpdateTimeString();
-
-			m_file << "<" + m_timeString + "> - Session Initiated." << std::endl;
-			m_file << std::endl << std::endl;
-
-			if (m_console) {
-				std::cout << "<" + m_timeString + "> - Session Initiated." << std::endl;
-				std::cout << std::endl << std::endl;
-			}
+	static Logger* GetInstance() {
+		if (m_instance == NULL) {
+			m_instance = new Logger("logger.txt", false);
 		}
+		return m_instance;
 	}
 
 	~Logger() {
@@ -89,7 +80,25 @@ public:
 	Logger(const Logger &) = delete;
 	Logger &operator= (const Logger &) = delete;
 
+	void SetConsoleLogging(bool option) { m_console = option; }
+
 protected:
+	explicit Logger(const std::string & fileName, bool console = false) : m_numErrors(0U), m_numWarning(0U), m_console(console) {
+		m_file.open(fileName.c_str());
+
+		if (m_file.is_open()) {
+			UpdateTimeString();
+
+			m_file << "<" + m_timeString + "> - Session Initiated." << std::endl;
+			m_file << std::endl << std::endl;
+
+			if (m_console) {
+				std::cout << "<" + m_timeString + "> - Session Initiated." << std::endl;
+				std::cout << std::endl << std::endl;
+			}
+		}
+	}
+
 	void UpdateTimeString() {
 		m_currentTime = time(0);
 		m_now = localtime(&m_currentTime);
@@ -99,6 +108,8 @@ protected:
 		
 		m_timeString = buff;
 	}
+
+	static Logger* m_instance;
 
 	unsigned int m_numErrors;
 	unsigned int m_numWarning;
