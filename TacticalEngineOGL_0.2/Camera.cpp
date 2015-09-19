@@ -3,8 +3,8 @@
 Camera::Camera() {}
 Camera::~Camera() {}
 
-bool Camera::Initialize(glm::vec3 position, glm::vec3 lookat, float fov, int width, int height) {
-	VirtualCamera::Initialize(position, lookat, fov, width, height);
+bool Camera::Initialize(glm::vec3 position, glm::vec3 lookat, float fov, int width, int height, Logger* logger) {
+	VirtualCamera::Initialize(position, lookat, fov, width, height, logger);
 
 	m_cameraState = STILL;
 
@@ -26,6 +26,11 @@ bool Camera::Initialize(glm::vec3 position, glm::vec3 lookat, float fov, int wid
 	m_projection = m_perspective;
 	m_projectionState = PERSPECTIVE;
 
+	m_target = m_position * m_lookAt;
+	m_right = glm::cross(m_up, m_lookAt);
+
+	m_view = glm::lookAt(m_position, m_target, m_up);
+
 	return true;
 }
 
@@ -33,7 +38,8 @@ void Camera::Shutdown() {
 
 }
 
-void Camera::Update() {
+void Camera::Update(float msec) {
+	m_msec = msec;
 	Move3D();
 
 	glm::mat4 rotationMatrix = GetMatrixUsingYawPitchRoll(m_yaw, m_pitch, 0.0f);
@@ -42,7 +48,7 @@ void Camera::Update() {
 	m_translation = glm::vec3(0.0f);
 
 	m_lookAt = glm::vec3(rotationMatrix * glm::vec4(0.0f, 0.0f, 1.0f, 0.0f));
-	m_target = m_position * m_lookAt;
+	m_target = m_position + m_lookAt;
 
 	m_up = glm::vec3(rotationMatrix * glm::vec4(0.0f, 1.0f, 0.0f, 0.0f));
 	m_right = glm::cross(m_up, m_lookAt);
@@ -55,40 +61,40 @@ void Camera::Rotate(const float yaw, const float pitch, const float roll) {
 	else if (pitch < -0.10f) { m_pitch -= .10f; }
 	else { m_pitch += pitch; }
 
-	if (m_pitch >= 90.0f) { m_pitch = 90.0f; }
+	if (m_pitch > 90.0f) { m_pitch = 90.0f; }
 	else if (m_pitch <= -90.0f) { m_pitch = -90.0f; }
 
 	if (yaw > 0.10f) { m_yaw += .10f; }
 	else if (yaw < -0.10f) { m_yaw-= .10f; }
 	else { m_yaw += yaw; }
 
-	if (m_yaw >= 360.0f) { m_yaw -= 360.0f; }
-	else if (m_yaw <= -360.0f) { m_yaw += 360.0f; }
+	if (m_yaw > 360.0f) { m_yaw -= 360.0f; }
+	else if (m_yaw < -360.0f) { m_yaw += 360.0f; }
 }
 
 void Camera::Move3D() {
 	if (m_moveState.forward) {
-		Walk(m_speed);
+		Walk(m_speed * m_msec);
 	}
 
 	if (m_moveState.back) {
-		Walk(-m_speed);
+		Walk(-m_speed * m_msec);
 	}
 
 	if (m_moveState.left) {
-		Strafe(m_speed);
+		Strafe(m_speed * m_msec);
 	}
 
 	if (m_moveState.right) {
-		Strafe(-m_speed);
+		Strafe(-m_speed * m_msec);
 	}
 
 	if (m_moveState.up) {
-		Lift(m_speed);
+		Lift(m_speed * m_msec);
 	}
 
 	if (m_moveState.down) {
-		Lift(-m_speed);
+		Lift(-m_speed * m_msec);
 	}
 }
 
@@ -102,6 +108,7 @@ void Camera::Move2D(glm::vec2 pos) {
 
 void Camera::SetCameraState(int buttom, int action, double x, double y) {
 	if (buttom == GLFW_MOUSE_BUTTON_RIGHT && action == GLFW_PRESS) {
+		(*m_logger) << Logger::logType::LOG_INFO << "'Right' mouse buttom pressed.";
 		m_cameraState = ROTATE;
 	}
 	else if (buttom == GLFW_MOUSE_BUTTON_RIGHT && action == GLFW_RELEASE) {
@@ -114,6 +121,7 @@ void Camera::SetCameraState(int buttom, int action, double x, double y) {
 void Camera::OnKeyboard(GLFWwindow* window, int key, int scancode, int action, int mods) {
 	if (key == GLFW_KEY_W) {
 		if (action == GLFW_PRESS) {
+			(*m_logger) << Logger::logType::LOG_INFO << "W Key pressed.";
 			m_moveState.forward = true;
 		}
 
@@ -124,6 +132,7 @@ void Camera::OnKeyboard(GLFWwindow* window, int key, int scancode, int action, i
 
 	if (key == GLFW_KEY_S) {
 		if (action == GLFW_PRESS) {
+			(*m_logger) << Logger::logType::LOG_INFO << "S Key pressed.";
 			m_moveState.back = true;
 		}
 
@@ -134,6 +143,7 @@ void Camera::OnKeyboard(GLFWwindow* window, int key, int scancode, int action, i
 
 	if (key == GLFW_KEY_A) {
 		if (action == GLFW_PRESS) {
+			(*m_logger) << Logger::logType::LOG_INFO << "A Key pressed.";
 			m_moveState.left = true;
 		}
 
@@ -144,6 +154,7 @@ void Camera::OnKeyboard(GLFWwindow* window, int key, int scancode, int action, i
 
 	if (key == GLFW_KEY_D) {
 		if (action == GLFW_PRESS) {
+			(*m_logger) << Logger::logType::LOG_INFO << "D Key pressed.";
 			m_moveState.right = true;
 		}
 
@@ -154,6 +165,7 @@ void Camera::OnKeyboard(GLFWwindow* window, int key, int scancode, int action, i
 
 	if (key == GLFW_KEY_LEFT_SHIFT) {
 		if (action == GLFW_PRESS) {
+			(*m_logger) << Logger::logType::LOG_INFO << "'Shift' Key pressed.";
 			m_moveState.down = true;
 		}
 
@@ -164,6 +176,7 @@ void Camera::OnKeyboard(GLFWwindow* window, int key, int scancode, int action, i
 
 	if (key == GLFW_KEY_SPACE) {
 		if (action == GLFW_PRESS) {
+			(*m_logger) << Logger::logType::LOG_INFO << "'Space' Key pressed.";
 			m_moveState.up = true;
 		}
 
@@ -173,6 +186,7 @@ void Camera::OnKeyboard(GLFWwindow* window, int key, int scancode, int action, i
 	}
 
 	if (key == GLFW_KEY_F && action == GLFW_PRESS) {
+		(*m_logger) << Logger::logType::LOG_INFO << "F Key pressed.";
 		if (m_projectionState == PERSPECTIVE) m_projectionState = ORTHO;
 		else m_projectionState = PERSPECTIVE;
 	}

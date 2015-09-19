@@ -8,6 +8,8 @@
 #include "glm\gtc\matrix_transform.hpp"
 #include "glm\gtx\euler_angles.hpp"
 
+#include "Logger.h"
+
 enum MovementDirection {
 	FORWARD, BACK, LEFT, RIGHT, UP, DOWN
 };
@@ -25,10 +27,10 @@ public:
 	VirtualCamera() {};
 	~VirtualCamera() {};
 
-	bool virtual Initialize(glm::vec3 position, glm::vec3 lookat, float fov, int width, int height);
+	bool virtual Initialize(glm::vec3 position, glm::vec3 lookat, float fov, int width, int height, Logger* logger);
 	void virtual Shutdown() = 0;
 
-	virtual void Update() = 0;
+	virtual void Update(float msec) = 0;
 	virtual void Rotate(const float yaw, const float pitch, const float roll) = 0;
 
 	const glm::mat4 GetView() { return m_view; }
@@ -57,6 +59,8 @@ protected:
 
 	float m_speed;
 	float m_mouseSensitivity;
+
+	Logger* m_logger;
 };
 
 #endif

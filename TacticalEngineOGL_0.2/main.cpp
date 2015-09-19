@@ -12,6 +12,7 @@ int main(int argc, char* argv[])
 	Window* window = Window::GetInstance();
 	Renderer* renderer = Renderer::GetInstance();
 	Logger logger("looger.txt", true);
+	
 
 	if (window->Initialize(1200.0, 800.0, &logger)) {
 		if (renderer == NULL || !renderer->Initialize(window->GetScreenSize(), &logger)) {

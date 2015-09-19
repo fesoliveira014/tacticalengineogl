@@ -9,6 +9,7 @@
 
 #include "Renderer.h"
 #include "Logger.h"
+#include "Timer.h"
 
 class Window{
 public:
@@ -26,7 +27,7 @@ public:
 
 	void Update();
 
-	void SetRenderer(Renderer* renderer) { m_renderer = renderer; }
+	void SetRenderer(Renderer* renderer);
 
 	glm::vec2 GetScreenSize() { return glm::vec2(m_width, m_height); }
 	void ShowFps();
@@ -49,6 +50,7 @@ protected:
 
 	Renderer* m_renderer;
 	Logger* m_logger;
+	Timer* m_timer;
 };
 
 #endif

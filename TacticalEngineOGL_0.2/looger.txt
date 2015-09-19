@@ -1,28 +1,56 @@
-<02:17:42> - Session Initiated.
+<01:33:54> - Session Initiated.
 
 
-<02:17:42> - [INFO]: OpenGL version: 3.3.0 NVIDIA 353.62
-<02:17:42> - [INFO]: GLSL version: 3.30 NVIDIA via Cg compiler
-<02:17:42> - [INFO]: Vendor: NVIDIA Corporation
-<02:17:42> - [INFO]: Renderer: GeForce GTX 980 Ti/PCIe/SSE2
-<02:17:42> - [INFO]: Window successfully initialized.
-<02:17:42> - [INFO]: Starting renderer initialization...
-<02:17:42> - [INFO]: Loading shader...
-<02:17:42> - [INFO]: Starting shader compilation...
-<02:17:42> - [INFO]: Shader successfully compiled.
-<02:17:42> - [INFO]: Shader ./Shader/basicVertex.glsl successfully initialized.
-<02:17:42> - [INFO]: Loading shader...
-<02:17:42> - [INFO]: Starting shader compilation...
-<02:17:42> - [INFO]: Shader successfully compiled.
-<02:17:42> - [INFO]: Shader ./Shader/basicFragment.glsl successfully initialized.
-<02:17:42> - [INFO]: Starting shader program creation and linkage...
-<02:17:42> - [INFO]: Shaders successfully created and linked.
-<02:17:42> - [INFO]: 		Shader program: 3
-<02:17:42> - [INFO]: Renderer successfully initialized.
-<02:17:59> - [INFO]: Shutting window down...
+<01:33:54> - [INFO]: OpenGL version: 3.3.0 NVIDIA 353.62
+<01:33:54> - [INFO]: GLSL version: 3.30 NVIDIA via Cg compiler
+<01:33:54> - [INFO]: Vendor: NVIDIA Corporation
+<01:33:54> - [INFO]: Renderer: GeForce GTX 980 Ti/PCIe/SSE2
+<01:33:54> - [INFO]: Window successfully initialized.
+<01:33:54> - [INFO]: Starting renderer initialization...
+<01:33:54> - [INFO]: Loading shader...
+<01:33:54> - [INFO]: Starting shader compilation...
+<01:33:54> - [INFO]: Shader successfully compiled.
+<01:33:54> - [INFO]: Shader ./Shader/basicVertex.glsl successfully initialized.
+<01:33:54> - [INFO]: Loading shader...
+<01:33:54> - [INFO]: Starting shader compilation...
+<01:33:54> - [INFO]: Shader successfully compiled.
+<01:33:54> - [INFO]: Shader ./Shader/basicFragment.glsl successfully initialized.
+<01:33:55> - [INFO]: Starting shader program creation and linkage...
+<01:33:55> - [INFO]: Shaders successfully created and linked.
+<01:33:55> - [INFO]: 		Shader program: 3
+<01:33:55> - [INFO]: Uniform 'viewProjectionMatrix' added to the uniform list.
+<01:33:55> - [INFO]: Uniform 'modelMatrix' added to the uniform list.
+<01:33:55> - [INFO]: Renderer successfully initialized.
+<01:33:55> - [INFO]: F Key pressed.
+<01:33:56> - [INFO]: D Key pressed.
+<01:33:56> - [INFO]: W Key pressed.
+<01:33:56> - [INFO]: A Key pressed.
+<01:33:57> - [INFO]: W Key pressed.
+<01:33:57> - [INFO]: D Key pressed.
+<01:33:58> - [INFO]: 'Right' mouse buttom pressed.
+<01:33:58> - [INFO]: D Key pressed.
+<01:33:59> - [INFO]: S Key pressed.
+<01:33:59> - [INFO]: F Key pressed.
+<01:34:00> - [INFO]: F Key pressed.
+<01:34:00> - [INFO]: F Key pressed.
+<01:34:00> - [INFO]: F Key pressed.
+<01:34:00> - [INFO]: F Key pressed.
+<01:34:00> - [INFO]: F Key pressed.
+<01:34:01> - [INFO]: F Key pressed.
+<01:34:01> - [INFO]: F Key pressed.
+<01:34:01> - [INFO]: F Key pressed.
+<01:34:03> - [INFO]: F Key pressed.
+<01:34:06> - [INFO]: 'Right' mouse buttom pressed.
+<01:34:06> - [INFO]: A Key pressed.
+<01:34:07> - [INFO]: F Key pressed.
+<01:34:08> - [INFO]: D Key pressed.
+<01:34:09> - [INFO]: A Key pressed.
+<01:34:10> - [INFO]: D Key pressed.
+<01:34:10> - [INFO]: A Key pressed.
+<01:34:15> - [INFO]: Shutting window down...
 
 
-<02:17:59> - There were 0 warnings and 0 errors.
+<01:34:15> - There were 0 warnings and 0 errors.
 ---------------------------------------
 
 

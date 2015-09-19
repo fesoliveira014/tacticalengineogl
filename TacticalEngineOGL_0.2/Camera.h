@@ -10,10 +10,10 @@ public:
 	Camera();
 	~Camera();
 
-	bool Initialize(glm::vec3 position, glm::vec3 lookat, float fov, int width, int height);
+	bool Initialize(glm::vec3 position, glm::vec3 lookat, float fov, int width, int height, Logger* logger);
 	void Shutdown();
 
-	void Update();
+	void Update(float msec = 1.0f);
 	void Rotate(const float yaw, const float pitch, const float roll);
 
 	glm::mat4 GetViewProjection() { return m_projection * m_view; }
@@ -32,6 +32,7 @@ protected:
 	void Lift(const float distance) { m_translation += m_up * distance; }
 
 	float m_yaw, m_pitch;
+	float m_msec;
 
 	glm::mat4 m_projection;
 

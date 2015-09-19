@@ -36,9 +36,19 @@ bool Renderer::Initialize(glm::vec2 screenDimensions, Logger *logger) {
 		criticalError = true;
 	}
 
+	result = m_currentShader->AddUniform("viewProjectionMatrix");
+	if (!result) {
+		(*m_logger) << Logger::logType::LOG_WARNING << "Could not find given uniform";
+	}
+
+	result = m_currentShader->AddUniform("modelMatrix");
+	if (!result) {
+		(*m_logger) << Logger::logType::LOG_WARNING << "Could not find given uniform";
+	}
+
 	m_camera = new Camera();
-	result = m_camera->Initialize(glm::vec3(0.0f, 0.0f, -7.0f), glm::vec3(0.0f, 0.0f, -1.0f), 
-											45.0f, screenDimensions.x, screenDimensions.y);
+	result = m_camera->Initialize(glm::vec3(0.0f, 0.0f, -7.0f), glm::vec3(0.0f, 0.0f, 0.0f), 
+											45.0f, screenDimensions.x, screenDimensions.y, m_logger);
 	if (!result) {
 		(*m_logger) << Logger::logType::LOG_ERROR << "Could not instantiate camera.";
 		criticalError = true;
@@ -60,8 +70,9 @@ void Renderer::Shutdown() {
 	m_logger = NULL;
 }
 
-void Renderer::UpdateScene() {
-
+void Renderer::UpdateScene(float msec) {
+	m_camera->Update(msec);
+	m_viewProjectionMatrix = m_camera->GetViewProjection();
 }
 
 void Renderer::RenderScene() {
@@ -69,6 +80,20 @@ void Renderer::RenderScene() {
 	glClear(GL_COLOR_BUFFER_BIT);
 
 	m_currentShader->Use();
+
+	glm::mat4 modelMatrix(1.0f);
+	modelMatrix = glm::translate(modelMatrix, glm::vec3(0.0f));
+
+	m_modelMatrix = modelMatrix;
+
+	UpdateShaderMatrices(m_currentShader);
 	m_triangle->Draw();
+
 	m_currentShader->UnUse();
+}
+
+void Renderer::UpdateShaderMatrices(Shader* shader) {
+	glUniformMatrix4fv(shader->GetUniform("viewProjectionMatrix"), 1, GL_FALSE, 
+					  glm::value_ptr(m_viewProjectionMatrix));
+	glUniformMatrix4fv(shader->GetUniform("modelMatrix"), 1, false, (float*)&m_modelMatrix);
 }

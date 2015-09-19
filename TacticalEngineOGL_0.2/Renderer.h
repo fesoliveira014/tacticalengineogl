@@ -4,6 +4,8 @@
 #include "glew\glew.h"
 #include "GLFW\glfw3.h"
 
+#include "glm\gtc\type_ptr.hpp"
+
 #include "Shader.h"
 #include "Logger.h"
 #include "Mesh.h"
@@ -24,25 +26,31 @@ public:
 	bool Initialize(glm::vec2 screenDimensions, Logger *logger);
 	void Shutdown();
 
-	void MouseMotionCallback(GLFWwindow* window, double xpos, double ypos) {
-		m_camera->OnMouseMotion(window, xpos, ypos);
+	static void MouseMotionCallback(GLFWwindow* window, double xpos, double ypos) {
+		GetInstance()->GetCamera()->OnMouseMotion(window, xpos, ypos);
 	}
 
-	void MouseButtonCallback(GLFWwindow* window, int buttom, int action, int mods) {
-		m_camera->OnMouseButtom(window, buttom, action, mods);
+	static void MouseButtonCallback(GLFWwindow* window, int buttom, int action, int mods) {
+		GetInstance()->GetCamera()->OnMouseButtom(window, buttom, action, mods);
 	}
 
-	void KeyboardCallback(GLFWwindow* window, int key, int scancode, int action, int mods) {
-		m_camera->OnKeyboard(window, key, scancode, action, mods);
+	static void KeyboardCallback(GLFWwindow* window, int key, int scancode, int action, int mods) {
+		GetInstance()->GetCamera()->OnKeyboard(window, key, scancode, action, mods);
 	}
 
-	void UpdateScene();
+	void UpdateScene(float msec = 1.0f);
 	void RenderScene();
 
 protected:
 	Renderer();
+	void UpdateShaderMatrices(Shader* shader);
+	Camera* GetCamera() { return m_camera; }
 
 	static Renderer* m_instance;
+
+	glm::mat4 m_viewProjectionMatrix;
+	glm::mat4 m_modelMatrix;
+	glm::mat4 m_textureMatrix;
 
 	Camera* m_camera;
 	Mesh* m_triangle;

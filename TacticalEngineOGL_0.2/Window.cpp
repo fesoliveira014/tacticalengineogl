@@ -51,7 +51,9 @@ bool Window::Initialize(float width, float height, Logger* logger, const std::st
 	(*m_logger) << Logger::logType::LOG_INFO << "Vendor: " + glVendor;
 	(*m_logger) << Logger::logType::LOG_INFO << "Renderer: " + glRenderer;
 
-	m_lastTime = glfwGetTime();
+	m_timer = new Timer();
+	m_numFrames = 0;
+	m_lastTime = m_timer->GetMS();
 
 	(*m_logger) << Logger::logType::LOG_INFO << "Window successfully initialized.";
 
@@ -64,8 +66,18 @@ void Window::Shutdown() {
 	m_logger = NULL;
 }
 
+void Window::SetRenderer(Renderer* renderer) {
+	m_renderer = renderer;
+
+	glfwSetKeyCallback(m_window, &Renderer::KeyboardCallback);
+	glfwSetMouseButtonCallback(m_window, &Renderer::MouseButtonCallback);
+	glfwSetCursorPosCallback(m_window, &Renderer::MouseMotionCallback);
+}
+
 void Window::Update() {
 	while (!glfwWindowShouldClose(m_window)) {
+		ShowFps();
+		m_renderer->UpdateScene();
 		m_renderer->RenderScene();
 		glfwSwapBuffers(m_window);
 		glfwPollEvents();
@@ -73,7 +85,7 @@ void Window::Update() {
 }
 
 void Window::ShowFps() {
-	double currentTime = glfwGetTime();
+	double currentTime = m_timer->GetMS();
 	double delta = currentTime - m_lastTime;
 	++m_numFrames;
 
