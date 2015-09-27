@@ -29,11 +29,11 @@ Mesh::~Mesh() {
 }
 
 void Mesh::Draw() {
-	Texture::Bind(m_texture);
+	if (m_texture != 0) Texture::Bind(m_texture);
 	glBindVertexArray(m_arrayObject);
 	glDrawArrays(m_type, 0, m_numVertices);
 	glBindVertexArray(0);
-	Texture::Unbind(m_texture);
+	if (m_texture != 0) Texture::Unbind(m_texture);
 }
 
 Mesh* Mesh::GenerateTriangle() {
@@ -57,6 +57,60 @@ Mesh* Mesh::GenerateTriangle() {
 
 	mesh->BufferData();
 
+	return mesh;
+}
+
+Mesh* Mesh::GenerateQuad() {
+	Mesh* mesh = new Mesh();
+	mesh->m_type = GL_TRIANGLE_STRIP;
+	mesh->m_numVertices = 4;
+
+	mesh->m_vertices	  = new glm::vec3[mesh->m_numVertices];
+	mesh->m_textureCoords = new glm::vec2[mesh->m_numVertices];
+	mesh->m_colours		  = new glm::vec4[mesh->m_numVertices];
+
+	mesh->m_vertices[0] = glm::vec3(-0.5f, -0.5f, 0.0f);
+	mesh->m_vertices[1] = glm::vec3(-0.5f,  0.5f, 0.0f);
+	mesh->m_vertices[2] = glm::vec3( 0.5f, -0.5f, 0.0f);
+	mesh->m_vertices[3] = glm::vec3( 0.5f,  0.5f, 0.0f);
+
+	mesh->m_textureCoords[0] = glm::vec2(0.0f, 1.0f);
+	mesh->m_textureCoords[1] = glm::vec2(0.0f, 0.0f);
+	mesh->m_textureCoords[2] = glm::vec2(1.0f, 1.0f);
+	mesh->m_textureCoords[3] = glm::vec2(1.0f, 0.0f);
+
+	for (int i = 0; i < 4; ++i) {
+		mesh->m_colours[i] = glm::vec4(1.0f);
+	}
+
+	mesh->BufferData();
+	return mesh;
+}
+
+Mesh* Mesh::GenerateQuad(glm::vec3 p1, glm::vec3 p2, glm::vec3 p3, glm::vec3 p4) {
+	Mesh* mesh = new Mesh();
+	mesh->m_type = GL_TRIANGLE_STRIP;
+	mesh->m_numVertices = 4;
+
+	mesh->m_vertices = new glm::vec3[mesh->m_numVertices];
+	mesh->m_textureCoords = new glm::vec2[mesh->m_numVertices];
+	mesh->m_colours = new glm::vec4[mesh->m_numVertices];
+
+	mesh->m_vertices[0] = p1;
+	mesh->m_vertices[1] = p2;
+	mesh->m_vertices[2] = p3;
+	mesh->m_vertices[3] = p4;
+
+	mesh->m_textureCoords[0] = glm::vec2(0.0f, 1.0f);
+	mesh->m_textureCoords[1] = glm::vec2(0.0f, 0.0f);
+	mesh->m_textureCoords[2] = glm::vec2(1.0f, 1.0f);
+	mesh->m_textureCoords[3] = glm::vec2(1.0f, 0.0f);
+
+	for (int i = 0; i < 4; ++i) {
+		mesh->m_colours[i] = glm::vec4(1.0f);
+	}
+
+	mesh->BufferData();
 	return mesh;
 }
 

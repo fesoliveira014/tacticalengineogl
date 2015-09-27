@@ -1,32 +1,140 @@
-<19:10:40> - Session Initiated.
+<01:39:19> - Session Initiated.
 
 
-<19:10:41> - [INFO]: OpenGL version: 3.3.0 NVIDIA 353.62
-<19:10:41> - [INFO]: GLSL version: 3.30 NVIDIA via Cg compiler
-<19:10:41> - [INFO]: Vendor: NVIDIA Corporation
-<19:10:41> - [INFO]: Renderer: GeForce GTX 980 Ti/PCIe/SSE2
-<19:10:41> - [INFO]: Window successfully initialized.
-<19:10:41> - [INFO]: Starting renderer initialization...
-<19:10:41> - [INFO]: Loading shader...
-<19:10:41> - [INFO]: Starting shader compilation...
-<19:10:41> - [INFO]: Shader successfully compiled.
-<19:10:41> - [INFO]: Shader ./Shader/basicVertex.glsl successfully initialized.
-<19:10:41> - [INFO]: Loading shader...
-<19:10:41> - [INFO]: Starting shader compilation...
-<19:10:41> - [INFO]: Shader successfully compiled.
-<19:10:41> - [INFO]: Shader ./Shader/basicFragment.glsl successfully initialized.
-<19:10:41> - [INFO]: Starting shader program creation and linkage...
-<19:10:41> - [INFO]: Shaders successfully created and linked.
-<19:10:41> - [INFO]: 		Shader program: 3
-<19:10:41> - [INFO]: Uniform 'viewProjectionMatrix' added to the uniform list.
-<19:10:41> - [INFO]: Uniform 'modelMatrix' added to the uniform list.
-<19:10:41> - [INFO]: Uniform 'diffuseTex' added to the uniform list.
-<19:10:41> - [INFO]: Renderer successfully initialized.
-<19:10:43> - [INFO]: W Key pressed.
-<19:10:45> - [INFO]: 'Right' mouse buttom pressed.
-<19:10:45> - [INFO]: D Key pressed.
-<19:10:46> - [INFO]: A Key pressed.
-<19:10:48> - [INFO]: D Key pressed.
-<19:10:49> - [INFO]: A Key pressed.
-<19:10:50> - [INFO]: 'Right' mouse buttom pressed.
-<19:11:00> - [INFO]: Shutting window down...
+<01:39:20> - [INFO]: OpenGL version: 3.3.0 NVIDIA 353.62
+<01:39:20> - [INFO]: GLSL version: 3.30 NVIDIA via Cg compiler
+<01:39:20> - [INFO]: Vendor: NVIDIA Corporation
+<01:39:20> - [INFO]: Renderer: GeForce GTX 980 Ti/PCIe/SSE2
+<01:39:20> - [INFO]: Window successfully initialized.
+<01:39:20> - [INFO]: Starting renderer initialization...
+<01:39:20> - [INFO]: Loading shader...
+<01:39:20> - [INFO]: Starting shader compilation...
+<01:39:20> - [INFO]: Shader successfully compiled.
+<01:39:20> - [INFO]: Shader ./Shader/basicVertex.glsl successfully initialized.
+<01:39:20> - [INFO]: Loading shader...
+<01:39:20> - [INFO]: Starting shader compilation...
+<01:39:20> - [INFO]: Shader successfully compiled.
+<01:39:20> - [INFO]: Shader ./Shader/basicFragment.glsl successfully initialized.
+<01:39:20> - [INFO]: Starting shader program creation and linkage...
+<01:39:20> - [INFO]: Shaders successfully created and linked.
+<01:39:20> - [INFO]: 		Shader program: 3
+<01:39:20> - [INFO]: Uniform 'viewProjectionMatrix' added to the uniform list.
+<01:39:20> - [INFO]: Uniform 'modelMatrix' added to the uniform list.
+<01:39:20> - [INFO]: Uniform 'diffuseTex' added to the uniform list.
+<01:39:20> - [INFO]: Renderer successfully initialized.
+<01:39:20> - [INFO]: '4' Key pressed.
+<01:39:21> - [INFO]: W Key pressed.
+<01:39:23> - [INFO]: 'Right' mouse buttom pressed.
+<01:39:23> - [INFO]: D Key pressed.
+<01:39:23> - [INFO]: 'Space' Key pressed.
+<01:39:24> - [INFO]: A Key pressed.
+<01:39:24> - [INFO]: A Key pressed.
+<01:39:27> - [INFO]: D Key pressed.
+<01:39:28> - [INFO]: W Key pressed.
+<01:39:28> - [INFO]: D Key pressed.
+<01:39:29> - [INFO]: W Key pressed.
+<01:39:30> - [INFO]: S Key pressed.
+<01:39:30> - [INFO]: A Key pressed.
+<01:39:31> - [INFO]: D Key pressed.
+<01:39:33> - [INFO]: A Key pressed.
+<01:39:34> - [INFO]: D Key pressed.
+<01:39:36> - [INFO]: D Key pressed.
+<01:39:37> - [INFO]: A Key pressed.
+<01:39:40> - [INFO]: W Key pressed.
+<01:39:41> - [INFO]: D Key pressed.
+<01:39:42> - [INFO]: A Key pressed.
+<01:39:43> - [INFO]: 'Space' Key pressed.
+<01:39:46> - [INFO]: 'Up' Key pressed.
+<01:39:47> - [INFO]: 'Up' Key pressed.
+<01:39:47> - [INFO]: 'Down' Key pressed.
+<01:39:47> - [INFO]: 'Down' Key pressed.
+<01:39:47> - [INFO]: 'Down' Key pressed.
+<01:39:48> - [INFO]: 'Down' Key pressed.
+<01:39:48> - [INFO]: 'Down' Key pressed.
+<01:39:48> - [INFO]: 'Up' Key pressed.
+<01:39:48> - [INFO]: 'Up' Key pressed.
+<01:39:49> - [INFO]: 'Up' Key pressed.
+<01:39:49> - [INFO]: 'Up' Key pressed.
+<01:39:49> - [INFO]: 'Up' Key pressed.
+<01:39:50> - [INFO]: 'Up' Key pressed.
+<01:39:50> - [INFO]: 'Down' Key pressed.
+<01:39:50> - [INFO]: 'Down' Key pressed.
+<01:39:50> - [INFO]: 'Down' Key pressed.
+<01:39:51> - [INFO]: 'Down' Key pressed.
+<01:39:51> - [INFO]: A Key pressed.
+<01:39:52> - [INFO]: D Key pressed.
+<01:39:53> - [INFO]: 'Right' mouse buttom pressed.
+<01:39:55> - [INFO]: 'Up' Key pressed.
+<01:39:55> - [INFO]: 'Up' Key pressed.
+<01:39:55> - [INFO]: 'Up' Key pressed.
+<01:39:56> - [INFO]: 'Down' Key pressed.
+<01:39:56> - [INFO]: 'Down' Key pressed.
+<01:39:56> - [INFO]: 'Down' Key pressed.
+<01:39:56> - [INFO]: D Key pressed.
+<01:39:57> - [INFO]: S Key pressed.
+<01:39:58> - [INFO]: 'Right' mouse buttom pressed.
+<01:39:58> - [INFO]: W Key pressed.
+<01:39:58> - [INFO]: D Key pressed.
+<01:39:59> - [INFO]: W Key pressed.
+<01:39:59> - [INFO]: D Key pressed.
+<01:40:00> - [INFO]: D Key pressed.
+<01:40:01> - [INFO]: D Key pressed.
+<01:40:03> - [INFO]: W Key pressed.
+<01:40:04> - [INFO]: D Key pressed.
+<01:40:04> - [INFO]: S Key pressed.
+<01:40:05> - [INFO]: '4' Key pressed.
+<01:40:06> - [INFO]: 'Right' mouse buttom pressed.
+<01:40:06> - [INFO]: D Key pressed.
+<01:40:07> - [INFO]: S Key pressed.
+<01:40:07> - [INFO]: 'Space' Key pressed.
+<01:40:08> - [INFO]: D Key pressed.
+<01:40:08> - [INFO]: A Key pressed.
+<01:40:09> - [INFO]: A Key pressed.
+<01:40:10> - [INFO]: D Key pressed.
+<01:40:11> - [INFO]: D Key pressed.
+<01:40:12> - [INFO]: D Key pressed.
+<01:40:12> - [INFO]: D Key pressed.
+<01:40:12> - [INFO]: 'Right' mouse buttom pressed.
+<01:40:18> - [INFO]: D Key pressed.
+<01:40:18> - [INFO]: 'Right' mouse buttom pressed.
+<01:40:19> - [INFO]: A Key pressed.
+<01:40:19> - [INFO]: A Key pressed.
+<01:40:22> - [INFO]: 'Right' mouse buttom pressed.
+<01:40:22> - [INFO]: A Key pressed.
+<01:40:29> - [INFO]: 'Right' mouse buttom pressed.
+<01:40:32> - [INFO]: 'Right' mouse buttom pressed.
+<01:40:32> - [INFO]: W Key pressed.
+<01:40:50> - [INFO]: '4' Key pressed.
+<01:40:50> - [INFO]: '4' Key pressed.
+<01:40:51> - [INFO]: '4' Key pressed.
+<01:40:51> - [INFO]: '4' Key pressed.
+<01:40:51> - [INFO]: '4' Key pressed.
+<01:40:51> - [INFO]: '4' Key pressed.
+<01:40:51> - [INFO]: '4' Key pressed.
+<01:40:52> - [INFO]: D Key pressed.
+<01:40:53> - [INFO]: D Key pressed.
+<01:40:53> - [INFO]: A Key pressed.
+<01:40:54> - [INFO]: 'Right' mouse buttom pressed.
+<01:40:55> - [INFO]: 'Right' mouse buttom pressed.
+<01:40:55> - [INFO]: W Key pressed.
+<01:40:57> - [INFO]: S Key pressed.
+<01:40:57> - [INFO]: D Key pressed.
+<01:40:58> - [INFO]: A Key pressed.
+<01:40:59> - [INFO]: D Key pressed.
+<01:41:05> - [INFO]: A Key pressed.
+<01:41:06> - [INFO]: D Key pressed.
+<01:41:24> - [INFO]: A Key pressed.
+<01:41:26> - [INFO]: 'Right' mouse buttom pressed.
+<01:41:26> - [INFO]: A Key pressed.
+<01:41:27> - [INFO]: W Key pressed.
+<01:41:29> - [INFO]: 'Right' mouse buttom pressed.
+<01:41:29> - [INFO]: A Key pressed.
+<01:41:30> - [INFO]: D Key pressed.
+<01:41:31> - [INFO]: 'Right' mouse buttom pressed.
+<01:41:32> - [INFO]: S Key pressed.
+<01:41:32> - [INFO]: W Key pressed.
+<01:41:35> - [INFO]: D Key pressed.
+<01:41:35> - [INFO]: D Key pressed.
+<01:41:35> - [INFO]: D Key pressed.
+<01:41:35> - [INFO]: 'Space' Key pressed.
+<02:04:41> - [INFO]: Shutting window down...

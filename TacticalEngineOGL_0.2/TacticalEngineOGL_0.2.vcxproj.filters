@@ -55,6 +55,15 @@
     <Filter Include="Source Files\Utils\Image">
       <UniqueIdentifier>{7fbbc198-b6a4-4398-8f65-23cd69a9604b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Data Structure">
+      <UniqueIdentifier>{947e5b9c-16a0-47d6-ad2a-35e20cbc509e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Renderer\Model\Cube">
+      <UniqueIdentifier>{43436267-8f13-4259-a20c-4493e0906789}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Data Structure\Octree">
+      <UniqueIdentifier>{508581fa-8e76-490b-bb3d-5cfb305bf8ba}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -90,6 +99,12 @@
     <ClCompile Include="Logger.cpp">
       <Filter>Source Files\Logger</Filter>
     </ClCompile>
+    <ClCompile Include="Model.cpp">
+      <Filter>Source Files\Renderer\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="Octree.cpp">
+      <Filter>Source Files\Data Structure\Octree</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Window.h">
@@ -124,6 +139,15 @@
     </ClInclude>
     <ClInclude Include="Image.h">
       <Filter>Source Files\Utils\Image</Filter>
+    </ClInclude>
+    <ClInclude Include="Model.h">
+      <Filter>Source Files\Renderer\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="Cube.h">
+      <Filter>Source Files\Renderer\Model\Cube</Filter>
+    </ClInclude>
+    <ClInclude Include="Octree.h">
+      <Filter>Source Files\Data Structure\Octree</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

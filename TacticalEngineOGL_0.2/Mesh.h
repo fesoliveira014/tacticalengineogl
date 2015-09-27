@@ -16,7 +16,10 @@ public:
 	~Mesh();
 
 	virtual void Draw();
+
 	static Mesh* GenerateTriangle();
+	static Mesh* GenerateQuad();
+	static Mesh* GenerateQuad(glm::vec3 p1, glm::vec3 p2, glm::vec3 p3, glm::vec3 p4);
 
 	void SetTexture(Texture* texture) { m_texture = texture; }
 	Texture* GetTexture()				  { return m_texture; }

@@ -3,21 +3,24 @@
 Renderer* Renderer::m_instance = NULL;
 
 Renderer::Renderer() {
-	m_triangle = NULL;
+	for (Mesh* mesh : m_meshes) {
+		mesh = NULL;
+	}
 	m_currentShader = NULL;
 }
 
 bool Renderer::Initialize(glm::vec2 screenDimensions) {
 	(*Logger::GetInstance()) << Logger::logType::LOG_INFO << "Starting renderer initialization...";
 
-	m_triangle = Mesh::GenerateTriangle();
+	m_cube = new Cube(glm::vec3(0.0f, 0.0f, 0.0f));
 
 	bool result;
 	bool criticalError = false;
 
 	Texture* texture = new Texture();
-	texture->Initialize(GL_TEXTURE_2D, "./Textures/bricks.jpg");
-	m_triangle->SetTexture(texture);
+	texture->Initialize(GL_TEXTURE_2D, "./Textures/white.jpg");
+	m_cube->SetTexture(texture);
+	
 
 	m_currentShader = new Shader();
 	m_currentShader->Initialize();
@@ -66,11 +69,22 @@ bool Renderer::Initialize(glm::vec2 screenDimensions) {
 	if (!criticalError)
 		(*Logger::GetInstance()) << Logger::logType::LOG_INFO << "Renderer successfully initialized.";
 
+	m_blendMode = 0;
+
+	glEnable(GL_CULL_FACE);
+	glCullFace(GL_BACK);
+	glFrontFace(GL_CW);
+
+	glEnable(GL_DEPTH_TEST);
+	//glDepthFunc(GL_LESS);
+
 	return !criticalError;
 }
 
 void Renderer::Shutdown() {
-	delete m_triangle;
+	for (auto mesh : m_meshes) {
+		delete mesh;
+	}
 
 	if (m_currentShader) {
 		m_currentShader->Shutdown();
@@ -84,7 +98,7 @@ void Renderer::UpdateScene(float msec) {
 
 void Renderer::RenderScene() {
 	glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
-	glClear(GL_COLOR_BUFFER_BIT);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	m_currentShader->Use();
 
@@ -94,7 +108,9 @@ void Renderer::RenderScene() {
 	m_modelMatrix = modelMatrix;
 
 	UpdateShaderMatrices(m_currentShader);
-	m_triangle->Draw();
+
+	glUniformMatrix4fv(m_currentShader->GetUniform("modelMatrix"), 1, false, glm::value_ptr(glm::translate(glm::mat4(1.0f), m_cube->GetPosition())));
+	m_cube->Draw();
 
 	m_currentShader->UnUse();
 }
@@ -102,5 +118,4 @@ void Renderer::RenderScene() {
 void Renderer::UpdateShaderMatrices(Shader* shader) {
 	glUniformMatrix4fv(shader->GetUniform("viewProjectionMatrix"), 1, GL_FALSE, 
 					  glm::value_ptr(m_viewProjectionMatrix));
-	glUniformMatrix4fv(shader->GetUniform("modelMatrix"), 1, false, (float*)&m_modelMatrix);
 }
