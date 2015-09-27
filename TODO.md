@@ -1,20 +1,24 @@
 # TODO - Updated on 08/09/15
 
 + Locate shared pointes in the code and substitute regular pointers for shared_ptr<Type>
-+ Add templates to logger class in order to expand upon the current functionalities in an ordely way
++ ~~Add templates to logger class in order to expand upon the current functionalities in an ordely way~~
+  * Current logger satisfactory for the time being, but *stream* structure kinda annoying
+  * *Refactor?*
 + Next steps:
   * Renderer class
-    - Camera
-    - Mesh
-    - Model
-    - Data Structures: Octree
-    - Texture
-    - Shader
+    - ~~Camera~~
+    - ~~Mesh~~
+    - ~~Model~~
+      + Partialy done, need to polish.
+    - Data Structures: **Octree**
+      + Work in progress
+    - ~~Texture~~
+    - ~~Shader~~
     - Light
     - Material (?)
     - Ray casting for picking
   * Input handling
-    - Who to deal with system integration: classes should share the input and handle events individually, but there were some issues when dealing with many classes sharing this on the first version
+    - ~~Who to deal with system integration: classes should share the input and handle events individually, but there were some issues when dealing with many classes sharing this on the first version~~
     - Integrate mouse and picking further on
   * Text on screen
     - This can be used in conjuction with the logger class
@@ -28,6 +32,7 @@
     - Batch rendering
 
 ## Some Concepts
+These are not *TODO*, but some stuff I think will be important down the road.
 
 * Should look into the uses of octrees and how that can help with geometry merging
 * How to have as many few draw calls as possible?
