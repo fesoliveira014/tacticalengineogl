@@ -10,15 +10,22 @@
 
 #include <vector>
 
+enum VoxelType {EMPTY, BLOCK};
+
 struct Voxel {
-	int type;
-	glm::vec3 position;
+	VoxelType m_type;
+	glm::vec3 m_position;
 
 	Voxel() {}
 
-	Voxel(int voxType, glm::vec3 pos) {
-		type = voxType;
-		position = pos;
+	Voxel(VoxelType voxType, glm::vec3 pos) {
+		m_type = voxType;
+		m_position = pos;
+	}
+
+	Voxel(const Voxel &voxel) {
+		m_type = voxel.m_type;
+		m_position = voxel.m_position;
 	}
 };
 
@@ -97,16 +104,13 @@ insert(node, data):
 ----------------------------------
 
 ----------------------------------
-Removal algorithm: removal is simple in this case. If node is a leaf and it contains data, delete data from node and
-check if all neighbors are empty. If they are, delete neighborhood. If it is not a leaf, find octant containg data
-position and apply removal method to that octant.
+Removal algorithm: removal is simple in this case. If node is a leaf and it contains data, delete data from node. 
+Else, if it is not a leaf, find octant containg data position and apply removal method to that octant.
 ----------------------------------
 remove(node, data):
 	if node is leaf:
 		if node contains data:
 			node.data <- empty
-			if all neighbors are empty:
-				destroy all parent.child
 	else:
 		octant <- child octant of current node containing data.position
 		remove(octant, data)
@@ -129,19 +133,24 @@ public:
 		bool m_exists;
 		bool m_isVisible;
 		bool m_hasChildren;
+		bool m_isEmpty;
 
 		int m_depth;
 		AABB m_boundingBox;
 		glm::vec3 m_center;
-		float m_length;
+		float m_halfLength;
 
-		Voxel voxel;
+		Voxel m_voxel;
 
 		OctNode() {}
 		OctNode(OctNode* parentNode,  glm::vec3 corner1, glm::vec3 corner2, int depth) {
 			m_boundingBox = AABB(corner1, corner2);
-			m_length = glm::abs(corner2.x - corner1.x);
-			m_center = glm::vec3(corner1.x + m_length / 2.0f, corner1.y + m_length / 2.0f, corner1.z + m_length / 2.0f);
+			m_halfLength = (float)glm::abs(corner2.x - corner1.x) / 2.0f;
+			m_center = glm::vec3(corner1.x + m_halfLength, corner1.y + m_halfLength, corner1.z + m_halfLength);
+
+			for (int i = 0; i < 8; ++i) {
+				m_child[i] = NULL;
+			}
 
 			m_depth = depth;
 			m_parent = parentNode;
@@ -149,6 +158,7 @@ public:
 			m_exists = true;
 			m_isVisible = false;
 			m_hasChildren = false;
+			m_isEmpty = true;
 
 			if (m_parent == NULL)
 				m_type = ROOT;
@@ -169,15 +179,15 @@ public:
 	void Draw();
 	void UpdateVisibleNodes();
 
-	bool Insert(Voxel voxel);
-	bool Remove(Voxel voxel);
-	
-	AABB GetBoundingBox(OctNode* node);
+	bool Insert(const Voxel &voxel);
+	bool Remove(const Voxel &voxel);
 
 	void Traversal(Ray ray);
 
 private:
 	void RecursiveDeletion(OctNode* node);
+	bool InsertRecursive(OctNode* node, const Voxel &voxel);
+	bool RemoveRecursive(OctNode* node, const Voxel &voxel);
 	void CheckVisibility(OctNode* node, std::vector<OctNode>* visibleNodes);
 
 	void DrawNode(OctNode* node);

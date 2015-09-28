@@ -59,6 +59,9 @@ public:
 		m_faces[4] = new CubeFace(topFace);
 		m_faces[5] = new CubeFace(bottomFace);
 	}
+
+
+
 	~Cube();
 
 	void Draw() {
