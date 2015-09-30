@@ -16,7 +16,7 @@ void Octree::Draw() {
 
 void Octree::UpdateVisibleNodes() {
 	m_visibleNodes.clear();
-	CheckVisibility(root, &m_visibleNodes);
+	CheckVisibility(root);
 }
 
 bool Octree::Insert(const Voxel &voxel) {
@@ -119,4 +119,19 @@ bool Octree::RemoveRecursive(OctNode* node, const Voxel &voxel) {
 		node->m_voxel.m_type = EMPTY;
 		node->m_isEmpty = true;
 	}
+	else {
+		for (int i = 0; i < 8; ++i) {
+			if (node->m_child[i]->m_boundingBox.Contains(voxel.m_position)) {
+				return RemoveRecursive(node->m_child[i], voxel);
+			}
+		}
+	}
+}
+
+void Octree::Traversal(Ray ray) {
+
+}
+
+void Octree::CheckVisibility(OctNode* node) {
+	
 }

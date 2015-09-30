@@ -188,7 +188,7 @@ private:
 	void RecursiveDeletion(OctNode* node);
 	bool InsertRecursive(OctNode* node, const Voxel &voxel);
 	bool RemoveRecursive(OctNode* node, const Voxel &voxel);
-	void CheckVisibility(OctNode* node, std::vector<OctNode>* visibleNodes);
+	void CheckVisibility(OctNode* node);
 
 	void DrawNode(OctNode* node);
 	int m_maxDepth;
