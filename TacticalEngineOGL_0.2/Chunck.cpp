@@ -85,10 +85,10 @@ void Chunk::Draw() {
 	if (m_numVertices == 0)
 		return;
 
-	(*Logger::GetInstance()) << Logger::logType::LOG_WARNING << "numVertices: " + std::to_string(m_numVertices);
+	//(*Logger::GetInstance()) << Logger::logType::LOG_WARNING << "numVertices: " + std::to_string(m_numVertices);
 	if (m_texture != NULL) Texture::Bind(m_texture);
 	glBindBuffer(GL_ARRAY_BUFFER, vbo);
 	glVertexAttribPointer(0, 4, GL_BYTE, GL_FALSE, 0, 0);
-	glDrawArrays(GL_TRIANGLES, 0, m_numVertices);
+	glDrawArrays(GL_TRIANGLE_STRIP, 0, m_numVertices);
 	if (m_texture != NULL) Texture::Unbind(m_texture);
 }

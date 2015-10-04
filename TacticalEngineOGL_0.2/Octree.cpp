@@ -16,7 +16,6 @@ void Octree::Draw() {
 
 void Octree::UpdateVisibleNodes() {
 	m_visibleNodes.clear();
-	CheckVisibility(root);
 }
 
 bool Octree::Insert(const Voxel &voxel) {
@@ -128,10 +127,41 @@ bool Octree::RemoveRecursive(OctNode* node, const Voxel &voxel) {
 	}
 }
 
-void Octree::Traversal() {
-	
+void Octree::Traversal(glm::vec3 lookAt) {
+	TraversalRecursive(root, lookAt);
 }
 
-void Octree::CheckVisibility(OctNode* node) {
-	
+void Octree::TraversalRecursive(OctNode* node, glm::vec3 lootAt) {
+	if (node->m_voxel.m_type==EMPTY) {
+		return;
+	}
+}
+
+bool Octree::IsVisible(OctNode* node) {
+
+}
+
+Octree::OctNode::OctNode(OctNode* parentNode, glm::vec3 corner1, glm::vec3 corner2, int depth) {
+	m_boundingBox = AABB(corner1, corner2);
+	m_halfLength = (float)glm::abs(corner2.x - corner1.x) / 2.0f;
+	m_center = glm::vec3(corner1.x + m_halfLength, corner1.y + m_halfLength, corner1.z + m_halfLength);
+
+	for (int i = 0; i < 8; ++i) {
+		m_child[i] = NULL;
+	}
+
+	m_depth = depth;
+	m_parent = parentNode;
+
+	m_exists = true;
+	m_isVisible = false;
+	m_hasChildren = false;
+	m_isEmpty = true;
+
+	if (m_parent == NULL)
+		m_type = ROOT;
+	else if (!m_hasChildren)
+		m_type = LEAF;
+	else
+		m_type = NODE;
 }

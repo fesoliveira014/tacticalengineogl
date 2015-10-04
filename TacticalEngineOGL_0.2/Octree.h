@@ -129,30 +129,7 @@ public:
 		Voxel m_voxel;
 
 		OctNode() {}
-		OctNode(OctNode* parentNode,  glm::vec3 corner1, glm::vec3 corner2, int depth) {
-			m_boundingBox = AABB(corner1, corner2);
-			m_halfLength = (float)glm::abs(corner2.x - corner1.x) / 2.0f;
-			m_center = glm::vec3(corner1.x + m_halfLength, corner1.y + m_halfLength, corner1.z + m_halfLength);
-
-			for (int i = 0; i < 8; ++i) {
-				m_child[i] = NULL;
-			}
-
-			m_depth = depth;
-			m_parent = parentNode;
-
-			m_exists = true;
-			m_isVisible = false;
-			m_hasChildren = false;
-			m_isEmpty = true;
-
-			if (m_parent == NULL)
-				m_type = ROOT;
-			else if (!m_hasChildren)
-				m_type = LEAF;
-			else
-				m_type = NODE;
-		}
+		OctNode(OctNode* parentNode, glm::vec3 corner1, glm::vec3 corner2, int depth);
 	};
 
 	Octree(glm::vec3 corner1, glm::vec3 corner2, int maxDepth) {
@@ -167,15 +144,15 @@ public:
 	bool Insert(const Voxel &voxel);
 	bool Remove(const Voxel &voxel);
 
-	void Traversal();
+	void Traversal(glm::vec3 lookAt);
 
 private:
 	Octree();
 	void RecursiveDeletion(OctNode* node);
 	bool InsertRecursive(OctNode* node, const Voxel &voxel);
 	bool RemoveRecursive(OctNode* node, const Voxel &voxel);
-	void TraversalRecursive(OctNode* node);
-	void CheckVisibility(OctNode* node);
+	void TraversalRecursive(OctNode* node, glm::vec3 lookAt);
+	bool IsVisible(OctNode* node);
 
 	void DrawNode(OctNode* node){}
 	int m_maxDepth;
