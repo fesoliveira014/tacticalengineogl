@@ -128,8 +128,8 @@ bool Octree::RemoveRecursive(OctNode* node, const Voxel &voxel) {
 	}
 }
 
-void Octree::Traversal(Ray ray) {
-
+void Octree::Traversal() {
+	
 }
 
 void Octree::CheckVisibility(OctNode* node) {

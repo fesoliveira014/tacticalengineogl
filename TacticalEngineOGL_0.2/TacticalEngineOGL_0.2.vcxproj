@@ -134,6 +134,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="Chunck.cpp" />
+    <ClCompile Include="Frustum.cpp" />
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="Logger.cpp" />
     <ClCompile Include="main.cpp" />
@@ -149,7 +151,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="Chunk.h" />
     <ClInclude Include="Cube.h" />
+    <ClInclude Include="Frustum.h" />
     <ClInclude Include="Image.h" />
     <ClInclude Include="Logger.h" />
     <ClInclude Include="Mesh.h" />
@@ -161,11 +165,14 @@
     <ClInclude Include="Timer.h" />
     <ClInclude Include="Utils.h" />
     <ClInclude Include="VirtualCamera.h" />
+    <ClInclude Include="Voxel.h" />
     <ClInclude Include="Window.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Shader\basicFragment.glsl" />
     <None Include="Shader\basicVertex.glsl" />
+    <None Include="Shader\chunkFragment.glsl" />
+    <None Include="Shader\chunkVertex.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -11,6 +11,7 @@
 #include "Mesh.h"
 #include "Camera.h"
 #include "Cube.h"
+#include "Chunk.h"
 
 class Window;
 
@@ -100,7 +101,9 @@ protected:
 
 	Camera* m_camera;
 	Shader* m_currentShader;
-	Cube* m_cube;
+	Chunk* m_chunk;
+
+	std::vector<Mesh*> m_meshes;
 
 	int m_blendMode;
 	bool m_usingAlpha;

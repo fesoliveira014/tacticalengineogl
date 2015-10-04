@@ -19,9 +19,6 @@
     <Filter Include="Source Files\Renderer">
       <UniqueIdentifier>{bd39d9af-d295-4f04-a653-7de1cdd782a3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Renderer\Scene">
-      <UniqueIdentifier>{e73d7f20-9145-4fe7-88bc-8563c030969c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Renderer\Model">
       <UniqueIdentifier>{2da2fe54-ddf1-4bc2-95f3-5c4dbaa738a2}</UniqueIdentifier>
     </Filter>
@@ -64,6 +61,15 @@
     <Filter Include="Source Files\Data Structure\Octree">
       <UniqueIdentifier>{508581fa-8e76-490b-bb3d-5cfb305bf8ba}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Renderer\Frustum">
+      <UniqueIdentifier>{1b53f0eb-45e2-4922-b6cb-7f9882b9ce53}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Scene">
+      <UniqueIdentifier>{e73d7f20-9145-4fe7-88bc-8563c030969c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Data Structure\Chunk">
+      <UniqueIdentifier>{4f653d29-5d77-4cfe-ad90-005b679ae258}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -104,6 +110,12 @@
     </ClCompile>
     <ClCompile Include="Octree.cpp">
       <Filter>Source Files\Data Structure\Octree</Filter>
+    </ClCompile>
+    <ClCompile Include="Frustum.cpp">
+      <Filter>Source Files\Renderer\Frustum</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunck.cpp">
+      <Filter>Source Files\Data Structure\Chunk</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -149,12 +161,27 @@
     <ClInclude Include="Octree.h">
       <Filter>Source Files\Data Structure\Octree</Filter>
     </ClInclude>
+    <ClInclude Include="Frustum.h">
+      <Filter>Source Files\Renderer\Frustum</Filter>
+    </ClInclude>
+    <ClInclude Include="Voxel.h">
+      <Filter>Source Files\Data Structure</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunk.h">
+      <Filter>Source Files\Data Structure\Chunk</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Shader\basicFragment.glsl">
       <Filter>Source Files\Renderer\Shader\Shaders</Filter>
     </None>
     <None Include="Shader\basicVertex.glsl">
+      <Filter>Source Files\Renderer\Shader\Shaders</Filter>
+    </None>
+    <None Include="Shader\chunkFragment.glsl">
+      <Filter>Source Files\Renderer\Shader\Shaders</Filter>
+    </None>
+    <None Include="Shader\chunkVertex.glsl">
       <Filter>Source Files\Renderer\Shader\Shaders</Filter>
     </None>
   </ItemGroup>

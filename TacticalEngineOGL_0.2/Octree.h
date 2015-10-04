@@ -8,26 +8,12 @@
 #include "glm\gtc\matrix_transform.hpp"
 #include "glm\gtc\type_ptr.hpp"
 
+#include <iostream>
 #include <vector>
 
-enum VoxelType {EMPTY, BLOCK};
+#include "Voxel.h"
 
-struct Voxel {
-	VoxelType m_type;
-	glm::vec3 m_position;
 
-	Voxel() {}
-
-	Voxel(VoxelType voxType, glm::vec3 pos) {
-		m_type = voxType;
-		m_position = pos;
-	}
-
-	Voxel(const Voxel &voxel) {
-		m_type = voxel.m_type;
-		m_position = voxel.m_position;
-	}
-};
 
 struct Ray {
 	// r = p + td, p = <px, py, pz>, d = <dx, dy, dz> and t is a vector
@@ -169,7 +155,6 @@ public:
 		}
 	};
 
-	Octree();
 	Octree(glm::vec3 corner1, glm::vec3 corner2, int maxDepth) {
 		m_maxDepth = maxDepth;
 		root = new OctNode(NULL, corner1, corner2, 0);
@@ -182,15 +167,17 @@ public:
 	bool Insert(const Voxel &voxel);
 	bool Remove(const Voxel &voxel);
 
-	void Traversal(Ray ray);
+	void Traversal();
 
 private:
+	Octree();
 	void RecursiveDeletion(OctNode* node);
 	bool InsertRecursive(OctNode* node, const Voxel &voxel);
 	bool RemoveRecursive(OctNode* node, const Voxel &voxel);
+	void TraversalRecursive(OctNode* node);
 	void CheckVisibility(OctNode* node);
 
-	void DrawNode(OctNode* node);
+	void DrawNode(OctNode* node){}
 	int m_maxDepth;
 
 	std::vector<OctNode> m_visibleNodes;

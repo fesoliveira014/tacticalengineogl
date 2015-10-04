@@ -60,8 +60,6 @@ public:
 		m_faces[5] = new CubeFace(bottomFace);
 	}
 
-
-
 	~Cube();
 
 	void Draw() {

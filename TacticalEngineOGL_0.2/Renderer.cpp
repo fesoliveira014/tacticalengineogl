@@ -12,25 +12,26 @@ Renderer::Renderer() {
 bool Renderer::Initialize(glm::vec2 screenDimensions) {
 	(*Logger::GetInstance()) << Logger::logType::LOG_INFO << "Starting renderer initialization...";
 
-	m_cube = new Cube(glm::vec3(0.0f, 0.0f, 0.0f));
+	m_chunk = new Chunk();
+	m_chunk->FillChunk();
 
 	bool result;
 	bool criticalError = false;
 
 	Texture* texture = new Texture();
 	texture->Initialize(GL_TEXTURE_2D, "./Textures/white.jpg");
-	m_cube->SetTexture(texture);
+	m_chunk->SetTexture(texture);
 	
 
 	m_currentShader = new Shader();
 	m_currentShader->Initialize();
 
-	result = m_currentShader->LoadShaderFromFile(GL_VERTEX_SHADER, "./Shader/basicVertex.glsl");
+	result = m_currentShader->LoadShaderFromFile(GL_VERTEX_SHADER, "./Shader/chunkVertex.glsl");
 	if (!result) {
 		(*Logger::GetInstance()) << Logger::logType::LOG_ERROR << "Could not not load vertex shader.";
 	}
 
-	result = m_currentShader->LoadShaderFromFile(GL_FRAGMENT_SHADER, "./Shader/basicFragment.glsl");
+	result = m_currentShader->LoadShaderFromFile(GL_FRAGMENT_SHADER, "./Shader/chunkFragment.glsl");
 	if (!result) {
 		(*Logger::GetInstance()) << Logger::logType::LOG_ERROR << "Could not not load fragment shader.";
 	}
@@ -47,11 +48,6 @@ bool Renderer::Initialize(glm::vec2 screenDimensions) {
 	}
 
 	result = m_currentShader->AddUniform("modelMatrix");
-	if (!result) {
-		(*Logger::GetInstance()) << Logger::logType::LOG_WARNING << "Could not find given uniform";
-	}
-
-	result = m_currentShader->AddUniform("diffuseTex");
 	if (!result) {
 		(*Logger::GetInstance()) << Logger::logType::LOG_WARNING << "Could not find given uniform";
 	}
@@ -97,7 +93,7 @@ void Renderer::UpdateScene(float msec) {
 }
 
 void Renderer::RenderScene() {
-	glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
+	glClearColor(0.8f, 0.8f, 0.8f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	m_currentShader->Use();
@@ -109,8 +105,8 @@ void Renderer::RenderScene() {
 
 	UpdateShaderMatrices(m_currentShader);
 
-	glUniformMatrix4fv(m_currentShader->GetUniform("modelMatrix"), 1, false, glm::value_ptr(glm::translate(glm::mat4(1.0f), m_cube->GetPosition())));
-	m_cube->Draw();
+	glUniformMatrix4fv(m_currentShader->GetUniform("modelMatrix"), 1, false, glm::value_ptr(glm::translate(glm::mat4(1.0f), m_chunk->GetPosition())));
+	m_chunk->Draw();
 
 	m_currentShader->UnUse();
 }
