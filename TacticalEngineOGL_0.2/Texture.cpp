@@ -7,7 +7,7 @@ Texture::Texture() {
 }
 
 Texture::~Texture() {
-
+	Shutdown();
 }
 
 bool Texture::Initialize(GLenum target, char* path) {
