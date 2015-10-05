@@ -10,8 +10,10 @@
     - ~~Mesh~~
     - ~~Model~~
       + Partialy done, need to polish.
-    - Data Structures: **Octree**
-      + Work in progress
+      + Might scap since changing paradigm to volume rendering.
+    - ~~Data Structures: **Octree**~~
+      + ~~Work in progress~~
+      + Will not implement now. Further on will implement as a SVO.
     - ~~Texture~~
     - ~~Shader~~
     - Light
@@ -28,19 +30,26 @@
   * Rendering optimization
     - Look for ways to use the data structures in order to optimze rendering
     - Occlusion culling, visibility check, frustrum culling
+      + Working on it now, is present on the Volume Mesh Builder.
     - Hidden surface removal
     - Batch rendering
+  *  **Volume Rendering** (Work in progress)
+    -  Ray casting
+    -  Find different ways to represent volume
+    -  Particle volume?
 
 ## Some Concepts
 These are not *TODO*, but some stuff I think will be important down the road.
 
-* Should look into the uses of octrees and how that can help with geometry merging
-* How to have as many few draw calls as possible?
+* ~~Should look into the uses of octrees and how that can help with geometry merging~~
+  - Will only do this with SVO
+* ~~How to have as many few draw calls as possible?~~
+  - Solved on new volume rendering (only six vbos in use);
 * Look into voxel representation:
-  - Voxel data structures
+  - ~~Voxel data structures~~
   - Compressing voxels for file system storage
   - Online compression and desconpression of voxels
-  - Chunks
+  - ~~Chunks~~
 * Integration with bullet physics
   - Further down the road, when the primary graphics systems (listed above) are complete
   - How to make my code interface well with bullet physics library?
@@ -48,6 +57,7 @@ These are not *TODO*, but some stuff I think will be important down the road.
   - When designing subsystems, what design pattern to use?
   - Identify classes that should be instanced only once and classes that would work well with factories, etc.
   - Modulartization: think ahead in order to prepare for code expansion
+  - Need to study about managers and how to better use them on the engine
 
 ## Procedural Generation
 
@@ -55,7 +65,7 @@ These are not *TODO*, but some stuff I think will be important down the road.
 * Read the Procedural Blog
 * Finish the Automata course this week
 * Start figuring the shape grammar
-
+* Volume procedural generation
 ## AI
 
 * Not important right now, should not be a concern for the close future
