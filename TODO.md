@@ -1,4 +1,4 @@
-# TODO - Updated on 08/09/15
+# TODO - Updated on 05/10/15
 
 + Locate shared pointes in the code and substitute regular pointers for shared_ptr<Type>
 + ~~Add templates to logger class in order to expand upon the current functionalities in an ordely way~~
