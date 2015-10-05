@@ -36,6 +36,14 @@ struct FaceGroup {
 	FaceGroup(VisibleFaceX x, VisibleFaceY y, VisibleFaceZ z) : x(x), y(y), z(z) {
 
 	}
+
+	inline friend bool operator==(const FaceGroup& group1, const FaceGroup& group2) {
+		return group1.x == group2.x && group1.y == group2.y && group1.z == group2.z;
+	}
+
+	inline friend bool operator!=(const FaceGroup& group1, const FaceGroup& group2) {
+		return !(group1 == group2);
+	}
 };
 
 class VolumeMeshBuilder {
@@ -43,18 +51,26 @@ public:
 	VolumeMeshBuilder(Shader* shader);
 	~VolumeMeshBuilder();
 
-	void BuildMesh(VolumeChunk* chunk, Frustum frustum, int maxCycles);
+	void BuildMesh(VolumeChunk* chunk, int maxCycles);
 	void BuildDisplayLists();
 
 	void Draw(VolumeChunk* chunk, Shader* shader);
 
 	void AddFace(glm::vec3 pos, Face face, int size);
 
+	void StartBuilding() { m_meshBuilderRunning = true; }
+	void FinishedBuild() { m_meshBuilderRunning = false; }
 	bool IsBuilderRunning() { return m_meshBuilderRunning; }
 
-protected:
 	void ClearVertexBuffers();
 	void ClearVertexLists();
+
+	FaceGroup GetVisibleFaces() { return m_visiblefaces; }
+	void SetVisibleFaces(FaceGroup visibleFaces) { m_visiblefaces = visibleFaces; }
+
+	void SetIterator(VolumeIterator iterator);
+
+protected:
 	void SwapBuffers();
 
 	std::vector<glm::vec4> m_topFaceVertices;

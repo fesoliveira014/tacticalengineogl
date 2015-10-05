@@ -70,6 +70,21 @@
     <Filter Include="Source Files\Data Structure\Chunk">
       <UniqueIdentifier>{4f653d29-5d77-4cfe-ad90-005b679ae258}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Renderer\Volume">
+      <UniqueIdentifier>{3316c8c6-a686-4425-915f-f6a0aa0587d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Renderer\Volume\BaseVolume">
+      <UniqueIdentifier>{9ff1d24b-091a-4ae5-8f6c-6dad89d08780}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Renderer\Volume\VolumeChunk">
+      <UniqueIdentifier>{ce6d905c-740c-4e29-baee-a0334a726009}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Renderer\Volume\VolumeMeshBuilder">
+      <UniqueIdentifier>{d6eb7a40-8c0b-438b-8085-27acac49b148}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Renderer\Volume\VolumeWorld">
+      <UniqueIdentifier>{e14f94df-e143-4dd3-866a-a0ada65299de}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -116,6 +131,15 @@
     </ClCompile>
     <ClCompile Include="Chunck.cpp">
       <Filter>Source Files\Data Structure\Chunk</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseVolume.cpp">
+      <Filter>Source Files\Renderer\Volume\BaseVolume</Filter>
+    </ClCompile>
+    <ClCompile Include="VolumeMeshBuilder.cpp">
+      <Filter>Source Files\Renderer\Volume\VolumeMeshBuilder</Filter>
+    </ClCompile>
+    <ClCompile Include="VolumeChunk.cpp">
+      <Filter>Source Files\Renderer\Volume\VolumeChunk</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -169,6 +193,15 @@
     </ClInclude>
     <ClInclude Include="Chunk.h">
       <Filter>Source Files\Data Structure\Chunk</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseVolume.h">
+      <Filter>Source Files\Renderer\Volume\BaseVolume</Filter>
+    </ClInclude>
+    <ClInclude Include="VolumeChunk.h">
+      <Filter>Source Files\Renderer\Volume\VolumeChunk</Filter>
+    </ClInclude>
+    <ClInclude Include="VolumeMeshBuilder.h">
+      <Filter>Source Files\Renderer\Volume\VolumeMeshBuilder</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -16,6 +16,10 @@ bool BaseVolume::IsEmpty() {
 	return m_data.begin() == m_data.end();
 }
 
+bool BaseVolume::IsModified() {
+	return m_modified;
+}
+
 void BaseVolume::Empty() {
 	m_data.clear();
 }

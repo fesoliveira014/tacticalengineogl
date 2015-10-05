@@ -15,6 +15,7 @@ typedef std::unordered_map<glm::vec3, Block>::iterator VolumeIterator;
 
 class BaseVolume {
 public:
+	BaseVolume() {}
 	BaseVolume(int capacity) {
 		m_capacity = capacity;
 	}
@@ -23,6 +24,7 @@ public:
 	bool IsSolid(glm::vec3 position);
 	bool IsEmpty();
 	bool IsFull();
+	bool IsModified();
 
 	// Methods for checking face visibility
 	bool TopVisible(glm::vec3 pos);
@@ -52,7 +54,7 @@ public:
 	VolumeIterator end() { return m_data.end(); }
 
 protected:
-
+	
 	int m_capacity;
 	bool m_modified;
 

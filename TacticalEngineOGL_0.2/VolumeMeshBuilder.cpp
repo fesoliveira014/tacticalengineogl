@@ -36,7 +36,7 @@ VolumeMeshBuilder::VolumeMeshBuilder(Shader* shader) {
 	m_visiblefaces.z = DRAW_BOTH_Z;
 }
 
-void VolumeMeshBuilder::BuildMesh(VolumeChunk* chunk, Frustum frustum, int maxCycles) {
+void VolumeMeshBuilder::BuildMesh(VolumeChunk* chunk, int maxCycles) {
 	if (chunk->IsModified()) {
 		chunk->Updated();
 		m_chunkIterator = chunk->m_chunkData.begin();
@@ -48,7 +48,7 @@ void VolumeMeshBuilder::BuildMesh(VolumeChunk* chunk, Frustum frustum, int maxCy
 	if (m_chunkIterator == chunk->m_chunkData.begin()) {
 		ClearVertexBuffers();
 
-		if (chunk->IsOccludedBtyNeighbors()) {
+		if (chunk->IsOccludedByNeighbors()) {
 			ClearVertexLists();
 			m_meshBuilderRunning = false;
 			return;
