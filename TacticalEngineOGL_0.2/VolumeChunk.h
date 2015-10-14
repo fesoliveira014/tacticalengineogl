@@ -32,6 +32,26 @@ public:
 
 	// placeholder
 	bool IsOccludedByNeighbors();
+	bool IsLeftNeighborSolid(glm::vec3 pos);
+	bool IsRightNeighborSolid(glm::vec3 pos);
+	bool IsTopNeighborSolid(glm::vec3 pos);
+	bool IsBottomNeighborSolid(glm::vec3 pos);
+	bool IsFrontNeighborSolid(glm::vec3 pos);
+	bool IsBackNeighborSolid(glm::vec3 pos);
+
+	void SetTopNeighbor(VolumeChunk* chunk);
+	void SetBottomNeighbor(VolumeChunk* chunk);
+	void SetLeftNighbor(VolumeChunk* chunk);
+	void SetRightNeighbor(VolumeChunk* chunk);
+	void SetFrontNeighbor(VolumeChunk* chunk);
+	void SetBackNeighbor(VolumeChunk* chunk);
+
+	bool IsTopBorderFull();
+	bool IsBottomBorderFull();
+	bool IsRightBorderFull();
+	bool IsLeftBorderFull();
+	bool IsFrontBorderFull();
+	bool IsBackBorderFull();
 
 	void Fill();
 	void Empty();

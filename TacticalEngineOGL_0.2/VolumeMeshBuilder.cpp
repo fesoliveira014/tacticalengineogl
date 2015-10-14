@@ -36,6 +36,7 @@ VolumeMeshBuilder::VolumeMeshBuilder(Shader* shader) {
 	m_visiblefaces.z = DRAW_BOTH_Z;
 }
 
+// Needs to add a mesh optimization pass at some point
 void VolumeMeshBuilder::BuildMesh(VolumeChunk* chunk, int maxCycles) {
 	if (chunk->IsModified()) {
 		chunk->Updated();
@@ -78,37 +79,67 @@ void VolumeMeshBuilder::BuildMesh(VolumeChunk* chunk, int maxCycles) {
 
 		if (coords.x > 0) {
 			if (chunk->m_chunkData.LeftVisible(coords)) {
-				AddFace(coords, LEFT, 1);
+				if (chunk->IsLeftBorderFull()) {
+					AddFace(coords, LEFT, chunk->m_chunkSize);
+				}
+				else {
+					AddFace(coords, LEFT, 1);
+				}
 			}
 		}
 
 		if (coords.x < chunk->m_chunkSize -1) {
 			if (chunk->m_chunkData.RightVisible(coords)) {
-				AddFace(coords, RIGHT, 1);
+				if (chunk->IsLeftBorderFull()) {
+					AddFace(coords, RIGHT, chunk->m_chunkSize);
+				}
+				else {
+					AddFace(coords, RIGHT, 1);
+				}
 			}
 		}
 
 		if (coords.y > 0) {
 			if (chunk->m_chunkData.LeftVisible(coords)) {
-				AddFace(coords, BOTTOM, 1);
+				if (chunk->IsLeftBorderFull()) {
+					AddFace(coords, BOTTOM, chunk->m_chunkSize);
+				}
+				else {
+					AddFace(coords, BOTTOM, 1);
+				}
 			}
 		}
 
 		if (coords.y < chunk->m_chunkSize - 1) {
 			if (chunk->m_chunkData.RightVisible(coords)) {
-				AddFace(coords, TOP, 1);
+				if (chunk->IsLeftBorderFull()) {
+					AddFace(coords, TOP, chunk->m_chunkSize);
+				}
+				else {
+					AddFace(coords, TOP, 1);
+				}
 			}
 		}
 
 		if (coords.z > 0) {
 			if (chunk->m_chunkData.LeftVisible(coords)) {
-				AddFace(coords, BACK, 1);
+				if (chunk->IsLeftBorderFull()) {
+					AddFace(coords, BACK, chunk->m_chunkSize);
+				}
+				else {
+					AddFace(coords, BACK, 1);
+				}
 			}
 		}
 
 		if (coords.z < chunk->m_chunkSize - 1) {
 			if (chunk->m_chunkData.RightVisible(coords)) {
-				AddFace(coords, FRONT, 1);
+				if (chunk->IsLeftBorderFull()) {
+					AddFace(coords, FRONT, chunk->m_chunkSize);
+				}
+				else {
+					AddFace(coords, FRONT, 1);
+				}
 			}
 		}
 

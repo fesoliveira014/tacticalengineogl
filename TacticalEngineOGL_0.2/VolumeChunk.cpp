@@ -64,9 +64,66 @@ void VolumeChunk::Updated() {
 	m_modified = false;
 }
 
-// placeholder
 bool VolumeChunk::IsOccludedByNeighbors() {
+	if (m_topNeighbour == NULL || m_bottomNeighbour == NULL ||
+		m_rightNeighbour == NULL || m_rightNeighbour == NULL ||
+		m_frontNeighbour == NULL || m_backNeighbour == NULL) {
+		return false;
+	}
+	else if (m_bottomNeighbour->IsTopBorderFull() && m_topNeighbour->IsBottomBorderFull() &&
+		m_leftNeighbour->IsRightBorderFull() && m_rightNeighbour->IsLeftBorderFull() &&
+		m_backNeighbour->IsFrontBorderFull() && m_frontNeighbour->IsBackBorderFull()) {
+		return true;
+	}
 	return false;
+}
+
+bool VolumeChunk::IsLeftNeighborSolid(glm::vec3 pos) {
+	return m_leftNeighbour->IsSolid(pos);
+}
+
+bool VolumeChunk::IsRightNeighborSolid(glm::vec3 pos) {
+	return m_rightNeighbour->IsSolid(pos);
+}
+
+bool VolumeChunk::IsTopNeighborSolid(glm::vec3 pos) {
+	return m_topNeighbour->IsSolid(pos);
+}
+
+bool VolumeChunk::IsBottomNeighborSolid(glm::vec3 pos) {
+	return m_bottomNeighbour->IsSolid(pos);
+}
+
+bool VolumeChunk::IsFrontNeighborSolid(glm::vec3 pos) {
+	return m_frontNeighbour->IsSolid(pos);
+}
+
+bool VolumeChunk::IsBackNeighborSolid(glm::vec3 pos) {
+	return m_backNeighbour->IsSolid(pos);
+}
+
+bool VolumeChunk::IsTopBorderFull() {
+	return m_chunkData.IsTopFaceFull();
+}
+
+bool VolumeChunk::IsBottomBorderFull() {
+	return m_chunkData.IsBottomFaceFull();
+}
+
+bool VolumeChunk::IsRightBorderFull() {
+	return m_chunkData.IsRightFaceFull();
+}
+
+bool VolumeChunk::IsLeftBorderFull() {
+	return m_chunkData.IsLeftFaceFull();
+}
+
+bool VolumeChunk::IsFrontBorderFull() {
+	return m_chunkData.IsFrontFaceFull();
+}
+
+bool VolumeChunk::IsBackBorderFull() {
+	return m_chunkData.IsBackFaceFull();
 }
 
 void VolumeChunk::Fill() {
