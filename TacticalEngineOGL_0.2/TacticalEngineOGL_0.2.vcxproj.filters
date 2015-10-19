@@ -82,7 +82,7 @@
     <Filter Include="Source Files\Renderer\Volume\VolumeMeshBuilder">
       <UniqueIdentifier>{d6eb7a40-8c0b-438b-8085-27acac49b148}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Renderer\Volume\VolumeWorld">
+    <Filter Include="Source Files\Renderer\Volume\Volume Manger">
       <UniqueIdentifier>{e14f94df-e143-4dd3-866a-a0ada65299de}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -140,6 +140,9 @@
     </ClCompile>
     <ClCompile Include="VolumeChunk.cpp">
       <Filter>Source Files\Renderer\Volume\VolumeChunk</Filter>
+    </ClCompile>
+    <ClCompile Include="VolumeManager.cpp">
+      <Filter>Source Files\Renderer\Volume\Volume Manger</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -202,6 +205,9 @@
     </ClInclude>
     <ClInclude Include="VolumeMeshBuilder.h">
       <Filter>Source Files\Renderer\Volume\VolumeMeshBuilder</Filter>
+    </ClInclude>
+    <ClInclude Include="VolumeManager.h">
+      <Filter>Source Files\Renderer\Volume\Volume Manger</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

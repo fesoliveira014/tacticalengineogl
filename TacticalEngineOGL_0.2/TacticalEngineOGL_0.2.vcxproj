@@ -149,6 +149,7 @@
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="VirtualCamera.cpp" />
     <ClCompile Include="VolumeChunk.cpp" />
+    <ClCompile Include="VolumeManager.cpp" />
     <ClCompile Include="VolumeMeshBuilder.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
@@ -170,6 +171,7 @@
     <ClInclude Include="Utils.h" />
     <ClInclude Include="VirtualCamera.h" />
     <ClInclude Include="VolumeChunk.h" />
+    <ClInclude Include="VolumeManager.h" />
     <ClInclude Include="VolumeMeshBuilder.h" />
     <ClInclude Include="Voxel.h" />
     <ClInclude Include="Window.h" />

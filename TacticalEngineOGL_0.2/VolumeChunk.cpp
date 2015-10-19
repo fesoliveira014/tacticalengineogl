@@ -10,6 +10,13 @@ m_chunkSize(size), m_maxHeight(maxHeight), m_position(position) {
 	
 	m_isVisible = false;
 	m_modified = false;
+
+	m_topNeighbour    = NULL;
+	m_bottomNeighbour = NULL;
+	m_rightNeighbour  = NULL;
+	m_leftNeighbour   = NULL;
+	m_frontNeighbour  = NULL;
+	m_backNeighbour   = NULL;
 }
 
 void VolumeChunk::StartGeometryBuild() {
