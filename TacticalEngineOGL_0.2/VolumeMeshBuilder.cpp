@@ -37,6 +37,8 @@ VolumeMeshBuilder::VolumeMeshBuilder(Shader* shader) {
 }
 
 // Needs to add a mesh optimization pass at some point
+// Mesh optimization as to include neighboring chunks at some point,
+// but a good start would be optimizing just for chunk.
 void VolumeMeshBuilder::BuildMesh(VolumeChunk* chunk, int maxCycles) {
 	if (chunk->IsModified()) {
 		chunk->Updated();

@@ -135,14 +135,12 @@
   <ItemGroup>
     <ClCompile Include="BaseVolume.cpp" />
     <ClCompile Include="Camera.cpp" />
-    <ClCompile Include="Chunck.cpp" />
     <ClCompile Include="Frustum.cpp" />
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="Logger.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="Model.cpp" />
-    <ClCompile Include="Octree.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="Texture.cpp" />
@@ -156,14 +154,12 @@
   <ItemGroup>
     <ClInclude Include="BaseVolume.h" />
     <ClInclude Include="Camera.h" />
-    <ClInclude Include="Chunk.h" />
     <ClInclude Include="Cube.h" />
     <ClInclude Include="Frustum.h" />
     <ClInclude Include="Image.h" />
     <ClInclude Include="Logger.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="Model.h" />
-    <ClInclude Include="Octree.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="Texture.h" />
@@ -173,7 +169,6 @@
     <ClInclude Include="VolumeChunk.h" />
     <ClInclude Include="VolumeManager.h" />
     <ClInclude Include="VolumeMeshBuilder.h" />
-    <ClInclude Include="Voxel.h" />
     <ClInclude Include="Window.h" />
   </ItemGroup>
   <ItemGroup>

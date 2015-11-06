@@ -58,17 +58,11 @@
     <Filter Include="Source Files\Renderer\Model\Cube">
       <UniqueIdentifier>{43436267-8f13-4259-a20c-4493e0906789}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Data Structure\Octree">
-      <UniqueIdentifier>{508581fa-8e76-490b-bb3d-5cfb305bf8ba}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Renderer\Frustum">
       <UniqueIdentifier>{1b53f0eb-45e2-4922-b6cb-7f9882b9ce53}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Scene">
       <UniqueIdentifier>{e73d7f20-9145-4fe7-88bc-8563c030969c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Data Structure\Chunk">
-      <UniqueIdentifier>{4f653d29-5d77-4cfe-ad90-005b679ae258}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Renderer\Volume">
       <UniqueIdentifier>{3316c8c6-a686-4425-915f-f6a0aa0587d2}</UniqueIdentifier>
@@ -123,14 +117,8 @@
     <ClCompile Include="Model.cpp">
       <Filter>Source Files\Renderer\Model</Filter>
     </ClCompile>
-    <ClCompile Include="Octree.cpp">
-      <Filter>Source Files\Data Structure\Octree</Filter>
-    </ClCompile>
     <ClCompile Include="Frustum.cpp">
       <Filter>Source Files\Renderer\Frustum</Filter>
-    </ClCompile>
-    <ClCompile Include="Chunck.cpp">
-      <Filter>Source Files\Data Structure\Chunk</Filter>
     </ClCompile>
     <ClCompile Include="BaseVolume.cpp">
       <Filter>Source Files\Renderer\Volume\BaseVolume</Filter>
@@ -185,17 +173,8 @@
     <ClInclude Include="Cube.h">
       <Filter>Source Files\Renderer\Model\Cube</Filter>
     </ClInclude>
-    <ClInclude Include="Octree.h">
-      <Filter>Source Files\Data Structure\Octree</Filter>
-    </ClInclude>
     <ClInclude Include="Frustum.h">
       <Filter>Source Files\Renderer\Frustum</Filter>
-    </ClInclude>
-    <ClInclude Include="Voxel.h">
-      <Filter>Source Files\Data Structure</Filter>
-    </ClInclude>
-    <ClInclude Include="Chunk.h">
-      <Filter>Source Files\Data Structure\Chunk</Filter>
     </ClInclude>
     <ClInclude Include="BaseVolume.h">
       <Filter>Source Files\Renderer\Volume\BaseVolume</Filter>

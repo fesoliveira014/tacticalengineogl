@@ -14,13 +14,23 @@
 #include <vector>
 
 class VolumeManager {
-	VolumeManager();
+	static VolumeManager* GetInstance() {
+		if (m_instance == NULL) {
+			m_instance = new VolumeManager();
+		}
+		return m_instance;
+	}
+
 	~VolumeManager();
 
-	void Draw(Shader* shader, glm::vec3 camPos, glm::vec3 camLookAt);
+	void UpdateChunks(glm::vec3 camPos, glm::vec3 camLookAt);
+	void Draw(Shader* shader);
 
 protected:
-	std::map<glm::vec3, VolumeChunk> chunks;
+	VolumeManager();
+	std::map<glm::vec3, VolumeChunk> m_chunks;
+
+	static VolumeManager* m_instance;
 	
 	int m_numChunks;
 	int m_chunkSize;
